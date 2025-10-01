@@ -1,0 +1,29 @@
+# Online Admin Panel Requirements
+# Core web framework
+flask>=2.3.0
+flask-socketio>=5.3.0
+
+# HTTP client for RFID sender
+requests>=2.31.0
+
+# WebSocket support
+python-socketio>=5.8.0
+
+# Additional utilities
+python-engineio>=4.7.0
+eventlet>=0.33.0
+
+# Already available in standard library:
+# sqlite3 - Database
+# json - JSON handling
+# hashlib - Hashing
+# logging - Logging
+# asyncio - Async operations
+# threading - Threading
+# time - Time operations
+# datetime - Date/time handling
+# typing - Type hints
+# dataclasses - Data classes
+# pathlib - Path handling
+# socket - Socket operations
+# uuid - UUID generation

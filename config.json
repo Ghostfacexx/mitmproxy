@@ -1,0 +1,8 @@
+{
+  "mitm_port": 8080,
+  "nfcgate_host": "135.148.82.215",
+  "nfcgate_port": 5566,
+  "bypass_pin": true,
+  "change_amount": true,
+  "remove_auth": true
+}

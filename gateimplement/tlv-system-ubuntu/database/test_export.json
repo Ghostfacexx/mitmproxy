@@ -1,0 +1,94 @@
+{
+  "export_timestamp": 1752797410.1189582,
+  "system_stats": {
+    "total_transactions": 3,
+    "auto_approved": 0,
+    "manual_review": 3,
+    "learned_transactions": 0
+  },
+  "database_stats": {
+    "total_approved_payments": 9,
+    "total_transactions": 102,
+    "overall_success_rate": 0.7058823529411765,
+    "card_brands": {
+      "": 1,
+      "American Express": 2,
+      "Discover": 1,
+      "Mastercard": 2,
+      "Visa": 3
+    },
+    "bypass_methods": [
+      {
+        "method": "signature",
+        "count": 4,
+        "avg_success_rate": 0.9583333333333334
+      },
+      {
+        "method": "cdcvm",
+        "count": 2,
+        "avg_success_rate": 1.0
+      },
+      {
+        "method": "pin",
+        "count": 1,
+        "avg_success_rate": 1.0
+      },
+      {
+        "method": "no_cvm",
+        "count": 1,
+        "avg_success_rate": 1.0
+      },
+      {
+        "method": "emv_replay",
+        "count": 1,
+        "avg_success_rate": 1.0
+      }
+    ]
+  },
+  "recognition_stats": {
+    "database_stats": {
+      "total_approved_payments": 9,
+      "total_transactions": 102,
+      "overall_success_rate": 0.7058823529411765,
+      "card_brands": {
+        "": 1,
+        "American Express": 2,
+        "Discover": 1,
+        "Mastercard": 2,
+        "Visa": 3
+      },
+      "bypass_methods": [
+        {
+          "method": "signature",
+          "count": 4,
+          "avg_success_rate": 0.9583333333333334
+        },
+        {
+          "method": "cdcvm",
+          "count": 2,
+          "avg_success_rate": 1.0
+        },
+        {
+          "method": "pin",
+          "count": 1,
+          "avg_success_rate": 1.0
+        },
+        {
+          "method": "no_cvm",
+          "count": 1,
+          "avg_success_rate": 1.0
+        },
+        {
+          "method": "emv_replay",
+          "count": 1,
+          "avg_success_rate": 1.0
+        }
+      ]
+    },
+    "cache_size": 0,
+    "auto_approval_enabled": true,
+    "confidence_threshold": 0.8,
+    "recognition_engine_version": "1.0.0"
+  },
+  "version": "1.0.0"
+}

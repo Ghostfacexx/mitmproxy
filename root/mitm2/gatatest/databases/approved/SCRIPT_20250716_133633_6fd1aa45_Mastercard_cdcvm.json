@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "script_id": "SCRIPT_20250716_133633_6fd1aa45",
+    "approval_status": "approved",
+    "confidence_level": "very_high",
+    "success_rate": 1.0,
+    "risk_score": 0.0,
+    "created_date": "2025-07-16T13:36:33.084363",
+    "last_updated": "2025-07-16T13:36:33.084371",
+    "tags": [
+      "brand_mastercard",
+      "type_business",
+      "method_cdcvm",
+      "status_approved",
+      "region_europe",
+      "production_ready",
+      "high_security"
+    ]
+  },
+  "card_information": {
+    "card_hash": "ff2deee33017ee55fa8fa8057c75e1caf19f83f49c6e9c46ff983546724957b1",
+    "card_brand": "Mastercard",
+    "card_type": "Business",
+    "pan_masked": "XXXX-XXXX-XXXX-XXXX",
+    "issuer_country": "GB",
+    "currency_code": "GBP",
+    "geographic_region": "Europe"
+  },
+  "payment_method": {
+    "terminal_type": "POS",
+    "bypass_method": "cdcvm",
+    "tlv_modifications": [
+      {
+        "tag": "9F34",
+        "value": "1E0300",
+        "description": "CVM results"
+      },
+      {
+        "tag": "9F26",
+        "value": "12345678",
+        "description": "Application Cryptogram"
+      }
+    ],
+    "execution_time_ms": 3200
+  },
+  "execution_script": {
+    "commands": [
+      "# Initialize POS terminal connection",
+      "terminal.connect()",
+      "terminal.authenticate()",
+      "# Card detection and reading",
+      "card_data = terminal.read_card()",
+      "verify_card_brand(card_data, expected='Mastercard')",
+      "# Apply TLV modifications",
+      "terminal.modify_tlv('9F34', '1E0300')",
+      "terminal.modify_tlv('9F26', '12345678')",
+      "# Apply cdcvm bypass method",
+      "terminal.enable_cdcvm()",
+      "terminal.set_cvm_list(['cdcvm', 'signature'])",
+      "# Execute transaction",
+      "response = terminal.process_transaction()",
+      "validate_response(response)",
+      "# Cleanup and disconnect",
+      "terminal.reset_modifications()",
+      "terminal.disconnect()"
+    ],
+    "prerequisites": [
+      "Terminal type: POS",
+      "Card brand: Mastercard",
+      "Bypass method support: cdcvm",
+      "TLV modification capability required"
+    ],
+    "validation_steps": [
+      "Verify card detection successful",
+      "Confirm card brand matches: Mastercard",
+      "Validate bypass method applied: cdcvm",
+      "Confirm all TLV modifications applied successfully",
+      "Check transaction approval response",
+      "Verify no error codes returned"
+    ],
+    "rollback_commands": [
+      "# Emergency rollback procedures",
+      "terminal.cancel_transaction()",
+      "terminal.reset_all_modifications()",
+      "terminal.restore_original_tlv_values()",
+      "terminal.clear_error_state()",
+      "terminal.disconnect()",
+      "log_failure_details()"
+    ]
+  },
+  "performance_metrics": {
+    "success_count": 24,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "confidence_level": "very_high",
+    "risk_score": 0.0
+  },
+  "notes_and_comments": {
+    "operator_notes": "UK Business Mastercard with moderate CDCVM success",
+    "warnings": [],
+    "recommendations": [
+      "Safe for automated execution",
+      "Excellent performance - suitable for production"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+TLV Credit Card System - Ubuntu Server Edition
+Version: 2.0.0
+Build Date: 2025-07-16 18:25:08 UTC
+Platform: Ubuntu Server 20.04+
+Architecture: x86_64
+
+Components:
+- TLV Credit Card System
+- NFCGate Integration
+- Admin Web Panel
+- Database Learning System
+- Relay/MITM Capabilities
+- Ubuntu Systemd Services
+- Nginx Reverse Proxy

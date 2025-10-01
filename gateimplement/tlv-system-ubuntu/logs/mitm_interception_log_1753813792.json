@@ -1,0 +1,8 @@
+[
+  {
+    "time": 1753813793.0548723,
+    "action": "block_pin",
+    "url": "https://test.com",
+    "pattern": "\"pin\"\\s*:\\s*\"\\d+\""
+  }
+]

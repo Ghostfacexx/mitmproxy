@@ -1,0 +1,205 @@
+{
+  "test_timestamp": "2025-09-01 04:28:12",
+  "project_root": "c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu",
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "test_results": {
+    "import_compatibility": [
+      false,
+      {
+        "online_admin_panel": {
+          "import_success": false,
+          "error": "No module named 'online_admin_panel'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'online_admin_panel'\n"
+        },
+        "enhanced_admin_panel_demo": {
+          "import_success": false,
+          "error": "No module named 'enhanced_admin_panel_demo'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'enhanced_admin_panel_demo'\n"
+        },
+        "admin_panel_complete": {
+          "import_success": false,
+          "error": "No module named 'admin_panel_complete'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'admin_panel_complete'\n"
+        },
+        "enhanced_rfid_client": {
+          "import_success": false,
+          "error": "No module named 'enhanced_rfid_client'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'enhanced_rfid_client'\n"
+        },
+        "rfid_client_sender": {
+          "import_success": true,
+          "error": null,
+          "module_path": "c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\rfid_client_sender.py"
+        },
+        "demo_quick_search": {
+          "import_success": false,
+          "error": "No module named 'demo_quick_search'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'demo_quick_search'\n"
+        },
+        "unified_config_system": {
+          "import_success": false,
+          "error": "No module named 'unified_config_system'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'unified_config_system'\n"
+        },
+        "integrated_control_system": {
+          "import_success": false,
+          "error": "No module named 'integrated_control_system'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'integrated_control_system'\n"
+        },
+        "master_admin_controller": {
+          "import_success": false,
+          "error": "No module named 'master_admin_controller'",
+          "traceback": "Traceback (most recent call last):\n  File \"c:\\Users\\PC\\Downloads\\nfcrelayDONOTTOUCH\\gateimpl\\root\\mitm2\\gatatest\\tlv-system-ubuntu\\test_comprehensive_compatibility.py\", line 66, in test_import_compatibility\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\nModuleNotFoundError: No module named 'master_admin_controller'\n"
+        }
+      }
+    ],
+    "database_compatibility": [
+      false,
+      {
+        "sqlite_operations": {
+          "success": true,
+          "rows_created": 2,
+          "rows_retrieved": 2
+        },
+        "database_manager": {
+          "success": false,
+          "error": "No module named 'online_admin_panel'"
+        }
+      }
+    ],
+    "config_compatibility": [
+      true,
+      {
+        "unified_config": {
+          "success": true,
+          "set_get_works": true,
+          "validation_works": true,
+          "has_admin_config": false
+        },
+        "config_file_config/mitm_config.json": {
+          "success": true,
+          "exists": true,
+          "valid_json": true,
+          "keys_count": 5
+        },
+        "config_file_config/proxy_config.json": {
+          "success": true,
+          "exists": true,
+          "valid_json": true,
+          "keys_count": 3
+        }
+      }
+    ],
+    "control_system_compatibility": [
+      true,
+      {
+        "integrated_control": {
+          "success": true,
+          "has_service_status": true,
+          "has_start_service": false,
+          "has_auto_deploy": false
+        }
+      }
+    ],
+    "admin_panel_compatibility": [
+      false,
+      {
+        "online_admin_panel": {
+          "success": false,
+          "error": "No module named 'online_admin_panel'"
+        },
+        "enhanced_admin_panel_demo": {
+          "success": false,
+          "error": "No module named 'enhanced_admin_panel_demo'"
+        },
+        "admin_panel_complete": {
+          "success": false,
+          "error": "No module named 'admin_panel_complete'"
+        }
+      }
+    ],
+    "rfid_client_compatibility": [
+      false,
+      {
+        "enhanced_rfid_client": {
+          "success": false,
+          "error": "No module named 'enhanced_rfid_client'"
+        },
+        "rfid_client_sender": {
+          "success": true,
+          "module_loaded": true,
+          "has_main": true
+        }
+      }
+    ],
+    "demo_compatibility": [
+      false,
+      {
+        "quick_search_demo": {
+          "success": false,
+          "error": "No module named 'demo_quick_search'"
+        }
+      }
+    ],
+    "file_operations": [
+      true,
+      {
+        "database_dir": {
+          "exists": false,
+          "writable": false
+        },
+        "logs_dir": {
+          "exists": true,
+          "writable": true
+        },
+        "config_dir": {
+          "exists": true,
+          "writable": true
+        },
+        "write_permission": {
+          "success": true
+        }
+      }
+    ]
+  },
+  "summary": {
+    "import_compatibility": {
+      "passed": false,
+      "details_count": 9
+    },
+    "database_compatibility": {
+      "passed": false,
+      "details_count": 2
+    },
+    "config_compatibility": {
+      "passed": true,
+      "details_count": 3
+    },
+    "control_system_compatibility": {
+      "passed": true,
+      "details_count": 1
+    },
+    "admin_panel_compatibility": {
+      "passed": false,
+      "details_count": 3
+    },
+    "rfid_client_compatibility": {
+      "passed": false,
+      "details_count": 2
+    },
+    "demo_compatibility": {
+      "passed": false,
+      "details_count": 1
+    },
+    "file_operations": {
+      "passed": true,
+      "details_count": 4
+    },
+    "overall": {
+      "total_tests": 8,
+      "passed_tests": 3,
+      "pass_rate": 37.5,
+      "all_passed": false
+    }
+  }
+}

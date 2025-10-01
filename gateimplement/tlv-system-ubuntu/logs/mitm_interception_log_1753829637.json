@@ -1,0 +1,8 @@
+[
+  {
+    "time": 1753829637.3489535,
+    "action": "block_pin",
+    "url": "https://monitor.example.com/pin_entry_blocked",
+    "pattern": "\"pin\"\\s*:\\s*\"\\d+\""
+  }
+]

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e59eb96a-d0f5-49f3-aebc-da88dd529582" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="300fjhqDZlKWcxktdXe59wKHoKs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_connection_management.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_live_relay_system.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.admin_panel_gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.comprehensive_credit_card_admin.executor&quot;: &quot;Run&quot;,
+    &quot;Python.country_currency_lookup.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.kurac.executor&quot;: &quot;Run&quot;,
+    &quot;Python.master_unified_launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nfcgate_admin_integration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nfcgate_android_integration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nfcgate_compatibility.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nfcgate_launcher.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tcp_server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Downloads/gateimpl/gateimplement&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e59eb96a-d0f5-49f3-aebc-da88dd529582" name="Changes" comment="" />
+      <created>1752769549361</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1752769549361</updated>
+      <workItem from="1752769550195" duration="8333000" />
+      <workItem from="1752792257631" duration="4689000" />
+      <workItem from="1752799282549" duration="4093000" />
+      <workItem from="1752886073948" duration="1572000" />
+      <workItem from="1752889525594" duration="1108000" />
+      <workItem from="1753120126346" duration="852000" />
+      <workItem from="1753287675924" duration="314000" />
+      <workItem from="1753302082975" duration="3913000" />
+      <workItem from="1753331055377" duration="625000" />
+      <workItem from="1753554350840" duration="534000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/gateimplement$nfcgate_android_integration.coverage" NAME="nfcgate_android_integration Coverage Results" MODIFIED="1752795804938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+    <SUITE FILE_PATH="coverage/gateimplement$gui.coverage" NAME="gui Coverage Results" MODIFIED="1752889945567" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/admin" />
+    <SUITE FILE_PATH="coverage/gateimplement$tcp_server.coverage" NAME="tcp_server Coverage Results" MODIFIED="1752778780932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/servers" />
+    <SUITE FILE_PATH="coverage/gateimplement$.coverage" NAME=" Coverage Results" MODIFIED="1752774368214" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gatatest" />
+    <SUITE FILE_PATH="coverage/gateimplement$nfcgate_admin_integration.coverage" NAME="nfcgate_admin_integration Coverage Results" MODIFIED="1752795889505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+    <SUITE FILE_PATH="coverage/test_relay_mitm_connection_py$country_currency_lookup.coverage" NAME="country_currency_lookup Coverage Results" MODIFIED="1753302659197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/database" />
+    <SUITE FILE_PATH="coverage/gateimplement$nfcgate_launcher.coverage" NAME="nfcgate_launcher Coverage Results" MODIFIED="1752795838942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+    <SUITE FILE_PATH="coverage/gateimplement$admin_panel_gui.coverage" NAME="admin_panel_gui Coverage Results" MODIFIED="1752886218151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/admin" />
+    <SUITE FILE_PATH="coverage/gateimplement$nfcgate_compatibility.coverage" NAME="nfcgate_compatibility Coverage Results" MODIFIED="1752772927734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/gatatest" />
+    <SUITE FILE_PATH="coverage/gateimplement$kurac.coverage" NAME="kurac Coverage Results" MODIFIED="1752794762546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/admin" />
+    <SUITE FILE_PATH="coverage/test_relay_mitm_connection_py$master_unified_launcher.coverage" NAME="master_unified_launcher Coverage Results" MODIFIED="1753331072276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+    <SUITE FILE_PATH="coverage/gateimplement$comprehensive_credit_card_admin.coverage" NAME="comprehensive_credit_card_admin Coverage Results" MODIFIED="1753120326311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+    <SUITE FILE_PATH="coverage/gateimplement$master_unified_launcher.coverage" NAME="master_unified_launcher Coverage Results" MODIFIED="1752797128797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tlv-system-ubuntu" />
+  </component>
+</project>

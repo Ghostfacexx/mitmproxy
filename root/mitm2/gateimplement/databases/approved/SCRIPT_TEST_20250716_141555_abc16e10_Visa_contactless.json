@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "script_id": "SCRIPT_TEST_20250716_141555_abc16e10",
+    "approval_status": "approved",
+    "confidence_level": "high",
+    "success_rate": 1.0,
+    "risk_score": 0.2,
+    "created_date": "2025-07-16T14:15:56.139520",
+    "last_updated": "2025-07-16T14:15:56.139531",
+    "tags": [
+      "brand_visa",
+      "type_standard",
+      "method_contactless",
+      "terminal_pos",
+      "country_us",
+      "region_north america",
+      "status_approved",
+      "production_ready",
+      "tested_successful"
+    ],
+    "approved_by": "test_automation",
+    "approval_notes": "Automated approval for test transaction 3"
+  },
+  "card_information": {
+    "card_hash": "9bbef19476623ca56c17da75fd57734dbf82530686043a6e491c6d71befe8f6e",
+    "card_brand": "Visa",
+    "card_type": "Standard",
+    "pan_masked": "XXXX-XXXX-XXXX-XXXX",
+    "issuer_country": "US",
+    "currency_code": "USD",
+    "geographic_region": "North America"
+  },
+  "payment_method": {
+    "terminal_type": "POS",
+    "bypass_method": "contactless",
+    "tlv_modifications": [
+      {
+        "tag": "9F34",
+        "value": "1E0300",
+        "description": "CVM Results"
+      },
+      {
+        "tag": "9F26",
+        "value": "12345678",
+        "description": "Application Cryptogram"
+      },
+      {
+        "tag": "DF12",
+        "value": "0001",
+        "description": "Contactless Application Label"
+      }
+    ],
+    "execution_time_ms": 2106
+  },
+  "execution_script": {
+    "commands": [
+      "# Initialize POS terminal connection",
+      "terminal.connect()",
+      "terminal.authenticate()",
+      "# Card detection and reading",
+      "card_data = terminal.read_card()",
+      "verify_card_brand(card_data, expected='Visa')",
+      "# Apply TLV modifications",
+      "terminal.modify_tlv('9F34', '1E0300')",
+      "terminal.modify_tlv('9F26', '12345678')",
+      "terminal.modify_tlv('DF12', '0001')",
+      "# Apply contactless bypass method",
+      "terminal.enable_contactless()",
+      "terminal.set_amount_limit(100.00)",
+      "# Execute transaction",
+      "response = terminal.process_transaction()",
+      "validate_response(response)",
+      "# Cleanup and disconnect",
+      "terminal.reset_modifications()",
+      "terminal.disconnect()"
+    ],
+    "prerequisites": [
+      "Terminal type: POS",
+      "Card brand: Visa",
+      "Bypass method support: contactless",
+      "TLV modification capability required"
+    ],
+    "validation_steps": [
+      "Verify card detection successful",
+      "Confirm card brand matches: Visa",
+      "Validate bypass method applied: contactless",
+      "Confirm all TLV modifications applied successfully",
+      "Check transaction approval response",
+      "Verify no error codes returned"
+    ],
+    "rollback_commands": [
+      "# Emergency rollback procedures",
+      "terminal.cancel_transaction()",
+      "terminal.reset_all_modifications()",
+      "terminal.restore_original_tlv_values()",
+      "terminal.clear_error_state()",
+      "terminal.disconnect()",
+      "log_failure_details()"
+    ]
+  },
+  "performance_metrics": {
+    "success_count": 1,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "confidence_level": "high",
+    "risk_score": 0.2
+  },
+  "test_information": {
+    "original_transaction_id": "TEST_20250716_141555_abc16e10",
+    "test_timestamp": "2025-07-16T14:15:55.534569",
+    "operator_notes": "",
+    "error_message": null,
+    "risk_assessment": "medium"
+  },
+  "notes_and_comments": {
+    "operator_notes": "",
+    "warnings": [],
+    "recommendations": [
+      "Safe for automated execution",
+      "Good performance - production ready with monitoring"
+    ]
+  }
+}

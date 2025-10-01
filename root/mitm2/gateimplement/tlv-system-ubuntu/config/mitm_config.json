@@ -1,0 +1,7 @@
+{
+  "mitm_enabled": true,
+  "bypass_pin": true,
+  "cdcvm_enabled": true,
+  "block_all": false,
+  "rsa_key_path": "keys/private.pem"
+}

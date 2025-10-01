@@ -1,0 +1,6 @@
+{
+  "mitm_enabled": true,
+  "bypass_pin": true,
+  "cdcvm_enabled": true,
+  "log_level": "INFO"
+}

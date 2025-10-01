@@ -1,0 +1,7 @@
+{
+  "block_all": false,
+  "block_pin": true,
+  "change_amount": true,
+  "remove_auth": true,
+  "inject_tracking": true
+}

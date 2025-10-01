@@ -1,0 +1,40 @@
+{
+  "server": {
+    "listen_port": 8080,
+    "target_host": "127.0.0.1",
+    "target_port": 5566,
+    "max_connections": 50,
+    "connection_timeout": 10,
+    "max_retry_attempts": 3
+  },
+  "bypass_features": {
+    "pin_bypass_enabled": true,
+    "auto_contactless_approval": true,
+    "amount_limit_override": true,
+    "force_contactless_mode": true,
+    "auto_success_injection": true,
+    "emv_bypass_enabled": true
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "nfcgate_mitm.log",
+    "max_file_size": "10MB",
+    "backup_count": 5
+  },
+  "security": {
+    "allowed_ips": [
+      "77.85.97.37",
+      "127.0.0.1"
+    ],
+    "require_authentication": false,
+    "rate_limiting": {
+      "enabled": true,
+      "max_requests_per_minute": 100
+    }
+  },
+  "nfcgate": {
+    "auto_start_service": true,
+    "service_check_interval": 5,
+    "mock_mode_enabled": true
+  }
+}

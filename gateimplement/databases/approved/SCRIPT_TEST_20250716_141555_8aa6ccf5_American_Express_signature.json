@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "script_id": "SCRIPT_TEST_20250716_141555_8aa6ccf5",
+    "approval_status": "approved",
+    "confidence_level": "high",
+    "success_rate": 1.0,
+    "risk_score": 0.30000000000000004,
+    "created_date": "2025-07-16T14:15:56.125634",
+    "last_updated": "2025-07-16T14:15:56.125647",
+    "tags": [
+      "brand_american_express",
+      "type_platinum",
+      "method_signature",
+      "terminal_mobile",
+      "country_de",
+      "region_europe",
+      "status_approved",
+      "production_ready",
+      "tested_successful"
+    ],
+    "approved_by": "test_automation",
+    "approval_notes": "Automated approval for test transaction 1"
+  },
+  "card_information": {
+    "card_hash": "3a134ef77d4e2e4cdad2d2945ff1f76c1a23296c93c851f6244220a8cedea130",
+    "card_brand": "American Express",
+    "card_type": "Platinum",
+    "pan_masked": "XXXX-XXXX-XXXX-XXXX",
+    "issuer_country": "DE",
+    "currency_code": "EUR",
+    "geographic_region": "Europe"
+  },
+  "payment_method": {
+    "terminal_type": "Mobile",
+    "bypass_method": "signature",
+    "tlv_modifications": [
+      {
+        "tag": "9F34",
+        "value": "1E0300",
+        "description": "CVM Results"
+      },
+      {
+        "tag": "9F26",
+        "value": "12345678",
+        "description": "Application Cryptogram"
+      }
+    ],
+    "execution_time_ms": 2016
+  },
+  "execution_script": {
+    "commands": [
+      "# Initialize Mobile terminal connection",
+      "terminal.connect()",
+      "terminal.authenticate()",
+      "# Card detection and reading",
+      "card_data = terminal.read_card()",
+      "verify_card_brand(card_data, expected='American Express')",
+      "# Apply TLV modifications",
+      "terminal.modify_tlv('9F34', '1E0300')",
+      "terminal.modify_tlv('9F26', '12345678')",
+      "# Apply signature bypass method",
+      "terminal.enable_signature_verification()",
+      "terminal.set_signature_required(True)",
+      "# Execute transaction",
+      "response = terminal.process_transaction()",
+      "validate_response(response)",
+      "# Cleanup and disconnect",
+      "terminal.reset_modifications()",
+      "terminal.disconnect()"
+    ],
+    "prerequisites": [
+      "Terminal type: Mobile",
+      "Card brand: American Express",
+      "Bypass method support: signature",
+      "TLV modification capability required"
+    ],
+    "validation_steps": [
+      "Verify card detection successful",
+      "Confirm card brand matches: American Express",
+      "Validate bypass method applied: signature",
+      "Confirm all TLV modifications applied successfully",
+      "Check transaction approval response",
+      "Verify no error codes returned"
+    ],
+    "rollback_commands": [
+      "# Emergency rollback procedures",
+      "terminal.cancel_transaction()",
+      "terminal.reset_all_modifications()",
+      "terminal.restore_original_tlv_values()",
+      "terminal.clear_error_state()",
+      "terminal.disconnect()",
+      "log_failure_details()"
+    ]
+  },
+  "performance_metrics": {
+    "success_count": 1,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "confidence_level": "high",
+    "risk_score": 0.30000000000000004
+  },
+  "test_information": {
+    "original_transaction_id": "TEST_20250716_141555_8aa6ccf5",
+    "test_timestamp": "2025-07-16T14:15:56.112603",
+    "operator_notes": "",
+    "error_message": null,
+    "risk_assessment": "medium"
+  },
+  "notes_and_comments": {
+    "operator_notes": "",
+    "warnings": [],
+    "recommendations": [
+      "Safe for automated execution",
+      "Good performance - production ready with monitoring"
+    ]
+  }
+}

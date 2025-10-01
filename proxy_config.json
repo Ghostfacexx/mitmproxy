@@ -1,0 +1,9 @@
+{
+  "block_all": false,
+  "block_pin": true,
+  "change_amount": true,
+  "remove_auth": true,
+  "inject_tracking": true,
+  "tcp_port": 8081,
+  "http_port": 8082
+}

@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "script_id": "SCRIPT_20250716_133633_a6043886",
+    "approval_status": "approved",
+    "confidence_level": "very_high",
+    "success_rate": 1.0,
+    "risk_score": 0.0,
+    "created_date": "2025-07-16T13:36:33.073302",
+    "last_updated": "2025-07-16T13:36:33.073309",
+    "tags": [
+      "brand_visa",
+      "type_corporate",
+      "method_signature",
+      "status_approved",
+      "region_north_america",
+      "production_ready",
+      "low_security"
+    ]
+  },
+  "card_information": {
+    "card_hash": "3a815aa7979da4bec027c3416ea9cdb774e22a726a5f73ca30bf2b2e276c6e04",
+    "card_brand": "Visa",
+    "card_type": "Corporate",
+    "pan_masked": "XXXX-XXXX-XXXX-XXXX",
+    "issuer_country": "CA",
+    "currency_code": "CAD",
+    "geographic_region": "North America"
+  },
+  "payment_method": {
+    "terminal_type": "POS",
+    "bypass_method": "signature",
+    "tlv_modifications": [
+      {
+        "tag": "9F34",
+        "value": "1E0300",
+        "description": "CVM results"
+      },
+      {
+        "tag": "9F26",
+        "value": "12345678",
+        "description": "Application Cryptogram"
+      }
+    ],
+    "execution_time_ms": 2900
+  },
+  "execution_script": {
+    "commands": [
+      "# Initialize POS terminal connection",
+      "terminal.connect()",
+      "terminal.authenticate()",
+      "# Card detection and reading",
+      "card_data = terminal.read_card()",
+      "verify_card_brand(card_data, expected='Visa')",
+      "# Apply TLV modifications",
+      "terminal.modify_tlv('9F34', '1E0300')",
+      "terminal.modify_tlv('9F26', '12345678')",
+      "# Apply signature bypass method",
+      "terminal.set_cvm('signature')",
+      "terminal.disable_pin_verification()",
+      "# Execute transaction",
+      "response = terminal.process_transaction()",
+      "validate_response(response)",
+      "# Cleanup and disconnect",
+      "terminal.reset_modifications()",
+      "terminal.disconnect()"
+    ],
+    "prerequisites": [
+      "Terminal type: POS",
+      "Card brand: Visa",
+      "Bypass method support: signature",
+      "TLV modification capability required"
+    ],
+    "validation_steps": [
+      "Verify card detection successful",
+      "Confirm card brand matches: Visa",
+      "Validate bypass method applied: signature",
+      "Confirm all TLV modifications applied successfully",
+      "Check transaction approval response",
+      "Verify no error codes returned"
+    ],
+    "rollback_commands": [
+      "# Emergency rollback procedures",
+      "terminal.cancel_transaction()",
+      "terminal.reset_all_modifications()",
+      "terminal.restore_original_tlv_values()",
+      "terminal.clear_error_state()",
+      "terminal.disconnect()",
+      "log_failure_details()"
+    ]
+  },
+  "performance_metrics": {
+    "success_count": 75,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "confidence_level": "very_high",
+    "risk_score": 0.0
+  },
+  "notes_and_comments": {
+    "operator_notes": "Corporate Visa with perfect signature bypass record",
+    "warnings": [],
+    "recommendations": [
+      "Safe for automated execution",
+      "Excellent performance - suitable for production"
+    ]
+  }
+}

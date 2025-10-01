@@ -1,0 +1,26 @@
+[Unit]
+Description=TLV Admin Panel
+After=network.target
+
+[Service]
+Type=simple
+User=tlv
+Group=tlv
+WorkingDirectory=/opt/tlv-system
+Environment=PATH=/opt/tlv-system/venv/bin
+ExecStart=/opt/tlv-system/venv/bin/python /opt/tlv-system/comprehensive_credit_card_admin.py --server
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=tlv-admin
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/tlv-system /var/log/tlv-system /tmp
+
+[Install]
+WantedBy=multi-user.target

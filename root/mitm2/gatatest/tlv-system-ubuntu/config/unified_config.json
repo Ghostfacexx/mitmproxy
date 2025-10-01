@@ -1,0 +1,112 @@
+{
+  "system": {
+    "version": "1.0.0",
+    "created": "2025-07-16T15:07:27.797722",
+    "project_name": "Enhanced RFID Admin Panel System",
+    "debug_mode": false
+  },
+  "admin_panel": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false,
+    "database_path": "database/online_admin.db",
+    "auto_create_db": true,
+    "enable_device_management": true,
+    "enable_card_analysis": true,
+    "enable_manipulation": true,
+    "max_captures": 10000,
+    "socketio_settings": {
+      "cors_allowed_origins": "*",
+      "async_mode": "threading"
+    }
+  },
+  "nfc_proxy": {
+    "tcp_port": 8081,
+    "http_port": 8082,
+    "mitm_enabled": true,
+    "bypass_pin": true,
+    "cdcvm_enabled": true,
+    "block_all": false,
+    "rsa_key_path": "keys/private.pem",
+    "log_level": "INFO"
+  },
+  "database": {
+    "payments_db": "database/payments.db",
+    "admin_db": "database/online_admin.db",
+    "quick_search_db": "database/quick_search.db",
+    "auto_backup": true,
+    "backup_interval_hours": 24,
+    "max_backup_files": 7
+  },
+  "quick_search": {
+    "enabled": true,
+    "cache_size": 1000,
+    "index_rebuild_interval": 3600,
+    "min_success_rate": 0.5,
+    "auto_approve_threshold": 0.7
+  },
+  "enhanced_clients": {
+    "default_server": "http://localhost:5000",
+    "simulation_interval": 3.0,
+    "real_card_data": true,
+    "manipulation_enabled": true,
+    "auto_register": true
+  },
+  "device_management": {
+    "auto_pairing": false,
+    "connection_timeout": 30,
+    "heartbeat_interval": 10,
+    "max_devices": 100,
+    "device_types": [
+      "reader",
+      "emulator",
+      "analyzer"
+    ]
+  },
+  "card_analysis": {
+    "enabled": true,
+    "supported_brands": [
+      "Visa",
+      "Mastercard",
+      "American Express",
+      "Discover",
+      "JCB",
+      "UnionPay"
+    ],
+    "tlv_parsing": true,
+    "issuer_lookup": true,
+    "geography_analysis": true
+  },
+  "manipulation": {
+    "enabled": true,
+    "audit_logging": true,
+    "max_log_entries": 50000,
+    "require_authorization": false,
+    "allowed_operations": [
+      "intercept",
+      "modify",
+      "replay",
+      "block"
+    ]
+  },
+  "security": {
+    "api_key_required": false,
+    "rate_limiting": false,
+    "max_requests_per_minute": 1000,
+    "allowed_ips": [
+      "*"
+    ],
+    "log_security_events": true
+  },
+  "integration": {
+    "control_system_enabled": true,
+    "auto_deploy": false,
+    "demo_mode": false,
+    "comprehensive_testing": true
+  },
+  "test": {
+    "compatibility": {
+      "value": "test_value_123"
+    }
+  }
+}

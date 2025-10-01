@@ -1,0 +1,1393 @@
+{
+  "supported_card_types": {
+    "credit": [
+      "Visa",
+      "Mastercard",
+      "American Express",
+      "Discover",
+      "JCB",
+      "UnionPay",
+      "Diners Club"
+    ],
+    "debit": [
+      "Maestro",
+      "Visa Debit",
+      "Mastercard Debit"
+    ],
+    "prepaid": [
+      "Visa Prepaid",
+      "Mastercard Prepaid",
+      "American Express Prepaid",
+      "Gift Card Prepaid"
+    ]
+  },
+  "card_type_configs": {
+    "Visa": {
+      "bin_ranges": [
+        "4000",
+        "4111",
+        "4444",
+        "4567",
+        "4712",
+        "4999",
+        "4001",
+        "4003",
+        "4005",
+        "4007",
+        "4009",
+        "4011"
+      ],
+      "aid": "A0000000031010",
+      "application_label": "VISA",
+      "application_preferred_name": "VISA CREDIT",
+      "kernel_id": "01",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "01",
+      "application_version": "0008",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "offline"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM",
+        "CDCVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 5000,
+        "floor_limit": 0
+      }
+    },
+    "Mastercard": {
+      "bin_ranges": [
+        "5100",
+        "5200",
+        "5300",
+        "5400",
+        "5500",
+        "2720",
+        "5101",
+        "5102",
+        "5103",
+        "5104",
+        "5105",
+        "2721"
+      ],
+      "aid": "A0000000041010",
+      "application_label": "MASTERCARD",
+      "application_preferred_name": "MASTERCARD CREDIT",
+      "kernel_id": "02",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "02",
+      "application_version": "0002",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "offline"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM",
+        "CDCVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 5000,
+        "floor_limit": 0
+      }
+    },
+    "American Express": {
+      "bin_ranges": [
+        "3400",
+        "3700",
+        "3780",
+        "3701",
+        "3702",
+        "3703"
+      ],
+      "aid": "A000000025010801",
+      "application_label": "AMERICAN EXPRESS",
+      "application_preferred_name": "AMEX CREDIT",
+      "kernel_id": "03",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "03",
+      "application_version": "0001",
+      "pan_length": 15,
+      "cvv_length": 4,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 20000,
+        "offline_limit": 10000,
+        "floor_limit": 0
+      }
+    },
+    "Discover": {
+      "bin_ranges": [
+        "6011",
+        "6500",
+        "6550",
+        "6012",
+        "6013",
+        "6501"
+      ],
+      "aid": "A0000001523010",
+      "application_label": "DISCOVER",
+      "application_preferred_name": "DISCOVER CREDIT",
+      "kernel_id": "04",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "04",
+      "application_version": "0001",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "offline"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 5000,
+        "floor_limit": 0
+      }
+    },
+    "JCB": {
+      "bin_ranges": [
+        "3528",
+        "3589",
+        "3529",
+        "3530",
+        "3531",
+        "3532"
+      ],
+      "aid": "A0000000651010",
+      "application_label": "JCB",
+      "application_preferred_name": "JCB CREDIT",
+      "kernel_id": "05",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0392",
+      "country_code": "0392",
+      "issuer_code_table_index": "05",
+      "application_version": "0001",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 5000,
+        "floor_limit": 0
+      }
+    },
+    "UnionPay": {
+      "bin_ranges": [
+        "6200",
+        "6220",
+        "6240",
+        "6201",
+        "6202",
+        "6221"
+      ],
+      "aid": "A000000333010101",
+      "application_label": "UNIONPAY",
+      "application_preferred_name": "UNIONPAY CREDIT",
+      "kernel_id": "06",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0156",
+      "country_code": "0156",
+      "issuer_code_table_index": "06",
+      "application_version": "0001",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 30000,
+        "offline_limit": 15000,
+        "floor_limit": 0
+      }
+    },
+    "Diners Club": {
+      "bin_ranges": [
+        "3000",
+        "3010",
+        "3020",
+        "3001",
+        "3002",
+        "3011"
+      ],
+      "aid": "A0000001523010",
+      "application_label": "DINERS CLUB",
+      "application_preferred_name": "DINERS CREDIT",
+      "kernel_id": "07",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "07",
+      "application_version": "0001",
+      "pan_length": 14,
+      "cvv_length": 3,
+      "supported_features": [
+        "chip",
+        "magstripe",
+        "online"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 0,
+        "offline_limit": 10000,
+        "floor_limit": 0
+      }
+    },
+    "Maestro": {
+      "bin_ranges": [
+        "5018",
+        "5020",
+        "5038",
+        "5893",
+        "6304",
+        "6759"
+      ],
+      "aid": "A0000000043060",
+      "application_label": "MAESTRO",
+      "application_preferred_name": "MAESTRO DEBIT",
+      "kernel_id": "08",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0978",
+      "country_code": "0276",
+      "issuer_code_table_index": "08",
+      "application_version": "0001",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "debit",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online"
+      ],
+      "verification_methods": [
+        "PIN",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 5000,
+        "offline_limit": 2500,
+        "floor_limit": 0
+      }
+    },
+    "Visa Debit": {
+      "bin_ranges": [
+        "4000",
+        "4111",
+        "4567",
+        "4571",
+        "4631",
+        "4988"
+      ],
+      "aid": "A0000000032010",
+      "application_label": "VISA DEBIT",
+      "application_preferred_name": "VISA DEBIT",
+      "kernel_id": "01",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "01",
+      "application_version": "0008",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "debit",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "pin_required"
+      ],
+      "verification_methods": [
+        "PIN",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 5000,
+        "offline_limit": 0,
+        "floor_limit": 0,
+        "daily_limit": 50000,
+        "pin_required_above": 2500
+      }
+    },
+    "Mastercard Debit": {
+      "bin_ranges": [
+        "5101",
+        "5200",
+        "5300",
+        "5555",
+        "5434",
+        "2223"
+      ],
+      "aid": "A0000000043060",
+      "application_label": "MASTERCARD DEBIT",
+      "application_preferred_name": "MASTERCARD DEBIT",
+      "kernel_id": "02",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "02",
+      "application_version": "0002",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "debit",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "pin_required"
+      ],
+      "verification_methods": [
+        "PIN",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 5000,
+        "offline_limit": 0,
+        "floor_limit": 0,
+        "daily_limit": 50000,
+        "pin_required_above": 2500
+      }
+    },
+    "Visa Prepaid": {
+      "bin_ranges": [
+        "4003",
+        "4571",
+        "4744",
+        "4847",
+        "4917",
+        "4929"
+      ],
+      "aid": "A0000000031010",
+      "application_label": "VISA PREPAID",
+      "application_preferred_name": "VISA PREPAID",
+      "kernel_id": "01",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "01",
+      "application_version": "0008",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "prepaid",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 2500,
+        "floor_limit": 0,
+        "max_balance": 500000,
+        "reload_limit": 200000
+      }
+    },
+    "Mastercard Prepaid": {
+      "bin_ranges": [
+        "5555",
+        "5103",
+        "5204",
+        "5301",
+        "5431",
+        "2221"
+      ],
+      "aid": "A0000000041010",
+      "application_label": "MASTERCARD PREPAID",
+      "application_preferred_name": "MASTERCARD PREPAID",
+      "kernel_id": "02",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "02",
+      "application_version": "0002",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "prepaid",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 2500,
+        "floor_limit": 0,
+        "max_balance": 500000,
+        "reload_limit": 200000
+      }
+    },
+    "American Express Prepaid": {
+      "bin_ranges": [
+        "3782",
+        "3787",
+        "3797",
+        "3716",
+        "3714",
+        "3717"
+      ],
+      "aid": "A000000025010801",
+      "application_label": "AMERICAN EXPRESS PREPAID",
+      "application_preferred_name": "AMEX PREPAID",
+      "kernel_id": "03",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "03",
+      "application_version": "0001",
+      "pan_length": 15,
+      "cvv_length": 4,
+      "card_category": "prepaid",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 15000,
+        "offline_limit": 5000,
+        "floor_limit": 0,
+        "max_balance": 1000000,
+        "reload_limit": 300000
+      }
+    },
+    "Gift Card Prepaid": {
+      "bin_ranges": [
+        "6040",
+        "6042",
+        "6043",
+        "6044",
+        "6045",
+        "6046"
+      ],
+      "aid": "A0000001523010",
+      "application_label": "GIFT CARD",
+      "application_preferred_name": "GIFT CARD",
+      "kernel_id": "04",
+      "terminal_type": "22",
+      "capabilities": "E0F8C8",
+      "currency_code": "0840",
+      "country_code": "0840",
+      "issuer_code_table_index": "04",
+      "application_version": "0001",
+      "pan_length": 16,
+      "cvv_length": 3,
+      "card_category": "prepaid",
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 50000,
+        "offline_limit": 10000,
+        "floor_limit": 0,
+        "max_balance": 100000,
+        "reload_limit": 0
+      }
+    }
+  },
+  "emv_tags": {
+    "4F": "Application Identifier (AID)",
+    "50": "Application Label",
+    "84": "Dedicated File (DF) Name",
+    "87": "Application Priority Indicator",
+    "88": "Short File Identifier (SFI)",
+    "5A": "Application Primary Account Number (PAN)",
+    "5F20": "Cardholder Name",
+    "5F24": "Application Expiration Date",
+    "5F25": "Application Effective Date",
+    "5F30": "Service Code",
+    "5F34": "Application PAN Sequence Number",
+    "5F28": "Issuer Country Code",
+    "5F50": "Issuer URL",
+    "5F53": "International Bank Account Number (IBAN)",
+    "5F54": "Bank Identifier Code (BIC)",
+    "82": "Application Interchange Profile",
+    "8C": "Card Risk Management Data Object List 1 (CDOL1)",
+    "8D": "Card Risk Management Data Object List 2 (CDOL2)",
+    "8E": "Cardholder Verification Method (CVM) List",
+    "8F": "Certification Authority Public Key Index",
+    "90": "Issuer Public Key Certificate",
+    "92": "Issuer Public Key Remainder",
+    "93": "Signed Static Application Data",
+    "9F46": "ICC Public Key Certificate",
+    "9F47": "ICC Public Key Exponent",
+    "9F48": "ICC Public Key Remainder",
+    "9F4B": "Signed Dynamic Application Data",
+    "5F2A": "Transaction Currency Code",
+    "9A": "Transaction Date",
+    "9C": "Transaction Type",
+    "9F02": "Amount, Authorized (Numeric)",
+    "9F03": "Amount, Other (Numeric)",
+    "9F21": "Transaction Time",
+    "9F37": "Unpredictable Number",
+    "9F41": "Transaction Sequence Counter",
+    "9F01": "Acquirer Country Code",
+    "9F1A": "Terminal Country Code",
+    "9F1C": "Terminal Identification",
+    "9F1E": "Interface Device (IFD) Serial Number",
+    "9F33": "Terminal Capabilities",
+    "9F35": "Terminal Type",
+    "9F40": "Additional Terminal Capabilities",
+    "9F06": "Application Identifier (AID) - terminal",
+    "9F07": "Application Usage Control",
+    "9F08": "Application Version Number",
+    "9F09": "Application Version Number (Terminal)",
+    "9F0D": "Issuer Action Code - Default",
+    "9F0E": "Issuer Action Code - Denial",
+    "9F0F": "Issuer Action Code - Online",
+    "9F26": "Application Cryptogram",
+    "9F27": "Cryptogram Information Data",
+    "9F36": "Application Transaction Counter (ATC)",
+    "9F4C": "ICC Dynamic Number",
+    "DF01": "Application PAN Suffix",
+    "DF02": "Transaction Timestamp",
+    "DF03": "Device ID",
+    "DF04": "Card UID",
+    "DF05": "Card Brand",
+    "DF06": "Card Sequence Number",
+    "DF07": "Issuer Script Template",
+    "DF08": "Application Cryptogram Type",
+    "DF09": "Terminal Risk Management Data",
+    "DF0A": "Card Authentication Data"
+  },
+  "sample_cards": {
+    "credit": {
+      "uid": "F4023783C5AAD9",
+      "atqa": "F0E7",
+      "sak": "11",
+      "protocol": "ISO14443A",
+      "card_type": "Visa",
+      "pan": "4111922468134353",
+      "masked_pan": "411192******4353",
+      "expiry_date": "0629",
+      "service_code": "223",
+      "cvv": "752",
+      "cvv2": "752",
+      "icvv": "287",
+      "timestamp": "2025-07-16T19:25:57.905857",
+      "created_at": "2025-07-16 19:25:57",
+      "expires_at": "2029-06-01",
+      "card_config": {
+        "bin_ranges": [
+          "4000",
+          "4111",
+          "4444",
+          "4567",
+          "4712",
+          "4999",
+          "4001",
+          "4003",
+          "4005",
+          "4007",
+          "4009",
+          "4011"
+        ],
+        "aid": "A0000000031010",
+        "application_label": "VISA",
+        "application_preferred_name": "VISA CREDIT",
+        "kernel_id": "01",
+        "terminal_type": "22",
+        "capabilities": "E0F8C8",
+        "currency_code": "0840",
+        "country_code": "0840",
+        "issuer_code_table_index": "01",
+        "application_version": "0008",
+        "pan_length": 16,
+        "cvv_length": 3,
+        "supported_features": [
+          "contactless",
+          "chip",
+          "magstripe",
+          "online",
+          "offline"
+        ],
+        "verification_methods": [
+          "PIN",
+          "Signature",
+          "No CVM",
+          "CDCVM"
+        ],
+        "transaction_limits": {
+          "contactless_limit": 10000,
+          "offline_limit": 5000,
+          "floor_limit": 0
+        }
+      },
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "offline"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM",
+        "CDCVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 5000,
+        "floor_limit": 0
+      },
+      "device_id": "device_6587",
+      "session_id": "2f825713",
+      "reader_type": "nfc_reader",
+      "tlv_data": "4F:A0000000031010|50:VISA|84:A0000000031010|87:01|88:01|5A:4111922468134353|5F20:Visa CARDHOLDER|5F24:0629|5F25:06|5F30:223|5F34:4353|5F28:0840|82:5800|8C:9F02069F03069F1A0295055F2A029A039C019F37049F35019F45029F4C089F34038D0C910A8A0295059F37049F4C08|8D:910A8A0295059F37049F4C08|8E:000000000000000042031E031F00|8F:01|90:2CCDD5E5ED7DB96BC6F0B11C559C8C1A8081F4B1D7346BCDC2D924164E0895EDBF2CB370F8777484EC086590677DB110337D184CCB75CEFE8344117B2BED03A8|92:E5522E544D39F71C279379DD43E3E95B74A6437308D75E9730F492FA5BB7CAA1|93:5CA4B55E55F97C021AC278B96D487FE8B1F00858C2C81E4B7CC97AA59D661D8D18B6A77BD3A853B0030DA8162B9B890AB7B81474878400C047C85229C0D762FB|9F46:905382A4D8B705AE4237B255D7BD96AD2A846B8570A995A63D2E91DC47FB9F2641FA5862417F258B769AE2F7B8DD76B3B29772CF7AE181C7A999406C68DC8A82|9F47:03|9F48:E68A8F839DDECFA6BE9003DD8F0B44E8F07CB600B212A63C3C327E7E7063AEC4|9F4B:42AC0826F1D427571256BFE36589B496FC73319E7B2EEA888223DA3667685778|5F2A:0840|9A:250716|9C:00|9F02:000000001000|9F03:000000000000|9F21:192557|9F37:B9C44E2D|9F41:5237|9F01:0840|9F1A:0840|9F1C:00000000|9F1E:0000000000000000|9F33:E0F8C8|9F35:22|9F40:F000F0A001|9F06:A0000000031010|9F07:FF00|9F08:0008|9F09:008C|9F0D:F040AC8000|9F0E:0000000000|9F0F:F040ACA000|9F26:09B478A3110AD5C3|9F27:80|9F36:C376|9F4C:3C6B05C59175FAE0|DF01:4353|DF02:20250716192557|DF03:device_6587|DF04:F4023783C5AAD9|DF05:Visa|DF06:014|DF08:TC|DF09:00000000|DF0A:A91DF564CD0A60180D5E3E3F3DDAA5E9",
+      "track1": "%B4111922468134353^Visa CARDHOLDER^062922300000000000000000000?",
+      "track2": ";4111922468134353=062922300000000000000000000?",
+      "emv_data": {
+        "aid": "A0000000031010",
+        "application_label": "VISA",
+        "application_preferred_name": "VISA CREDIT",
+        "kernel_id": "01",
+        "priority": "01",
+        "application_version": "0008",
+        "terminal_capabilities": "E0F8C8",
+        "additional_terminal_capabilities": "F000F0A001",
+        "terminal_type": "22",
+        "terminal_country_code": "0840",
+        "transaction_currency_code": "0840",
+        "acquirer_country_code": "0840",
+        "issuer_code_table_index": "01"
+      },
+      "security_features": {
+        "cvv": "752",
+        "cvv2": "752",
+        "icvv": "287",
+        "pin_verification_method": "offline",
+        "cvm_list": [
+          "PIN",
+          "Signature",
+          "No CVM",
+          "CDCVM"
+        ],
+        "offline_auth_supported": true,
+        "online_auth_supported": true,
+        "contactless_supported": true,
+        "chip_supported": true,
+        "magstripe_supported": true,
+        "dda_supported": true,
+        "sda_supported": true,
+        "cda_supported": true
+      },
+      "transaction_data": {
+        "last_transaction_date": "20250716",
+        "last_transaction_time": "192557",
+        "transaction_counter": 13633,
+        "last_online_atc": 46965,
+        "pin_try_counter": 3,
+        "offline_spending_amount": 0,
+        "consecutive_offline_transactions": 0
+      },
+      "issuer_data": {
+        "issuer_country_code": "0840",
+        "issuer_identification_number": "411192",
+        "bank_name": "Visa Bank",
+        "product_type": "CREDIT",
+        "card_program": "VISA CREDIT",
+        "issuer_url": "https://www.visa.com",
+        "customer_service_phone": "+1-800-555-0199"
+      },
+      "card_category": "credit"
+    },
+    "debit": {
+      "uid": "CDFB98B0B0DE5E",
+      "atqa": "C7D7",
+      "sak": "17",
+      "protocol": "ISO14443A",
+      "card_type": "Visa Debit",
+      "pan": "4988806188224314",
+      "masked_pan": "498880******4314",
+      "expiry_date": "1128",
+      "service_code": "221",
+      "cvv": "068",
+      "cvv2": "068",
+      "icvv": "823",
+      "timestamp": "2025-07-16T19:25:57.920713",
+      "created_at": "2025-07-16 19:25:57",
+      "expires_at": "2028-11-01",
+      "card_config": {
+        "bin_ranges": [
+          "4000",
+          "4111",
+          "4567",
+          "4571",
+          "4631",
+          "4988"
+        ],
+        "aid": "A0000000032010",
+        "application_label": "VISA DEBIT",
+        "application_preferred_name": "VISA DEBIT",
+        "kernel_id": "01",
+        "terminal_type": "22",
+        "capabilities": "E0F8C8",
+        "currency_code": "0840",
+        "country_code": "0840",
+        "issuer_code_table_index": "01",
+        "application_version": "0008",
+        "pan_length": 16,
+        "cvv_length": 3,
+        "card_category": "debit",
+        "supported_features": [
+          "contactless",
+          "chip",
+          "magstripe",
+          "online",
+          "pin_required"
+        ],
+        "verification_methods": [
+          "PIN",
+          "No CVM"
+        ],
+        "transaction_limits": {
+          "contactless_limit": 5000,
+          "offline_limit": 0,
+          "floor_limit": 0,
+          "daily_limit": 50000,
+          "pin_required_above": 2500
+        }
+      },
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "pin_required"
+      ],
+      "verification_methods": [
+        "PIN",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 5000,
+        "offline_limit": 0,
+        "floor_limit": 0,
+        "daily_limit": 50000,
+        "pin_required_above": 2500
+      },
+      "device_id": "device_5160",
+      "session_id": "1e920e9e",
+      "reader_type": "nfc_reader",
+      "tlv_data": "4F:A0000000032010|50:VISA DEBIT|84:A0000000032010|87:01|88:01|5A:4988806188224314|5F20:Visa Debit CARDHOLDER|5F24:1128|5F25:11|5F30:221|5F34:4314|5F28:0840|82:5800|8C:9F02069F03069F1A0295055F2A029A039C019F37049F35019F45029F4C089F34038D0C910A8A0295059F37049F4C08|8D:910A8A0295059F37049F4C08|8E:000000000000000042031E031F00|8F:01|90:843AFA9462506904A313F70408A66DFD97DBCC7BC8024EDE3B3AB1E64A7100BEF892B5B7628D4FFB19A28125838A3F8C0509086157F1F4C8A1402105B56FF69D|92:BEC35449E5F201138BB507C41B0859F7EBA52FBBE12B82926C8EFF8A41D3C034|93:526B490751ECD86AB3CD0D079DE7DFF3525353BAE85A7A1DC3C12307F6C1E877CC36707785D06E337CA22E32C87564BFDCF7B16C56FC61E636DFCAF33DB714F5|9F46:8A15FF85A2E73D562013516663D06B2739E9201CEAAF331EE86F7F70CDB84AAD0A74192BBB1FF883846C8F5368828BDD81E5C21E418E00BD8C72A1A15A1124B2|9F47:03|9F48:AC464CE439CE2A9AA1E6B588C27B0158E895555D374D9CAA6F643BF60CA1B0D6|9F4B:E1EA13BBDDDD8B95B840C91F35C3B844AEEC13625B08950535A8EF4466B5ECCC|5F2A:0840|9A:250716|9C:00|9F02:000000001000|9F03:000000000000|9F21:192557|9F37:DC8810DA|9F41:5923|9F01:0840|9F1A:0840|9F1C:00000000|9F1E:0000000000000000|9F33:E0F8C8|9F35:22|9F40:F000F0A001|9F06:A0000000032010|9F07:FF00|9F08:0008|9F09:008C|9F0D:F040AC8000|9F0E:0000000000|9F0F:F040ACA000|9F26:51D429D8E8974C33|9F27:80|9F36:6763|9F4C:90A34E20D7EB7D47|DF01:4314|DF02:20250716192557|DF03:device_5160|DF04:CDFB98B0B0DE5E|DF05:Visa Debit|DF06:116|DF08:TC|DF09:00000000|DF0A:D910A8E6D04F9E9C09FC6749C21BB8F9",
+      "track1": "%B4988806188224314^Visa Debit CARDHOLDER^112822100000000000000000000?",
+      "track2": ";4988806188224314=112822100000000000000000000?",
+      "emv_data": {
+        "aid": "A0000000032010",
+        "application_label": "VISA DEBIT",
+        "application_preferred_name": "VISA DEBIT",
+        "kernel_id": "01",
+        "priority": "01",
+        "application_version": "0008",
+        "terminal_capabilities": "E0F8C8",
+        "additional_terminal_capabilities": "F000F0A001",
+        "terminal_type": "22",
+        "terminal_country_code": "0840",
+        "transaction_currency_code": "0840",
+        "acquirer_country_code": "0840",
+        "issuer_code_table_index": "01"
+      },
+      "security_features": {
+        "cvv": "068",
+        "cvv2": "068",
+        "icvv": "823",
+        "pin_verification_method": "offline",
+        "cvm_list": [
+          "PIN",
+          "No CVM"
+        ],
+        "offline_auth_supported": false,
+        "online_auth_supported": true,
+        "contactless_supported": true,
+        "chip_supported": true,
+        "magstripe_supported": true,
+        "dda_supported": true,
+        "sda_supported": true,
+        "cda_supported": true,
+        "pin_verification_required": true
+      },
+      "transaction_data": {
+        "last_transaction_date": "20250716",
+        "last_transaction_time": "192557",
+        "transaction_counter": 64171,
+        "last_online_atc": 25691,
+        "pin_try_counter": 3,
+        "offline_spending_amount": 0,
+        "consecutive_offline_transactions": 0
+      },
+      "issuer_data": {
+        "issuer_country_code": "0840",
+        "issuer_identification_number": "498880",
+        "bank_name": "Visa Debit Bank",
+        "product_type": "CREDIT",
+        "card_program": "VISA DEBIT",
+        "issuer_url": "https://www.visadebit.com",
+        "customer_service_phone": "+1-800-555-0199"
+      },
+      "debit_specific": {
+        "account_type": "checking",
+        "pin_verification_required": true,
+        "offline_auth_supported": false,
+        "cash_back_supported": true,
+        "balance_inquiry_supported": true,
+        "account_selection_supported": true,
+        "issuer_authentication_indicator": "02",
+        "cvm_capability": "PIN_SUPPORTED",
+        "application_usage_control": "0800",
+        "issuer_action_codes": {
+          "denial": "0000010000",
+          "online": "DC4000A800",
+          "default": "DC4004A800"
+        }
+      },
+      "additional_tlv": [
+        [
+          "9F51",
+          "02"
+        ],
+        [
+          "DF20",
+          "01"
+        ],
+        [
+          "DF21",
+          "4314"
+        ],
+        [
+          "DF22",
+          "00"
+        ],
+        [
+          "DF23",
+          "01"
+        ]
+      ],
+      "card_category": "debit"
+    },
+    "prepaid": {
+      "uid": "52420403A8ACAB",
+      "atqa": "82E6",
+      "sak": "17",
+      "protocol": "ISO14443A",
+      "card_type": "Visa Prepaid",
+      "pan": "4917903669851779",
+      "masked_pan": "491790******1779",
+      "expiry_date": "1029",
+      "service_code": "200",
+      "cvv": "085",
+      "cvv2": "085",
+      "icvv": "370",
+      "timestamp": "2025-07-16T19:25:57.922065",
+      "created_at": "2025-07-16 19:25:57",
+      "expires_at": "2029-10-01",
+      "card_config": {
+        "bin_ranges": [
+          "4003",
+          "4571",
+          "4744",
+          "4847",
+          "4917",
+          "4929"
+        ],
+        "aid": "A0000000031010",
+        "application_label": "VISA PREPAID",
+        "application_preferred_name": "VISA PREPAID",
+        "kernel_id": "01",
+        "terminal_type": "22",
+        "capabilities": "E0F8C8",
+        "currency_code": "0840",
+        "country_code": "0840",
+        "issuer_code_table_index": "01",
+        "application_version": "0008",
+        "pan_length": 16,
+        "cvv_length": 3,
+        "card_category": "prepaid",
+        "supported_features": [
+          "contactless",
+          "chip",
+          "magstripe",
+          "online",
+          "balance_inquiry"
+        ],
+        "verification_methods": [
+          "PIN",
+          "Signature",
+          "No CVM"
+        ],
+        "transaction_limits": {
+          "contactless_limit": 10000,
+          "offline_limit": 2500,
+          "floor_limit": 0,
+          "max_balance": 500000,
+          "reload_limit": 200000
+        }
+      },
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "PIN",
+        "Signature",
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 10000,
+        "offline_limit": 2500,
+        "floor_limit": 0,
+        "max_balance": 500000,
+        "reload_limit": 200000
+      },
+      "device_id": null,
+      "session_id": "cc6d4282",
+      "reader_type": null,
+      "initial_balance": 25000,
+      "tlv_data": "4F:A0000000031010|50:VISA PREPAID|84:A0000000031010|87:01|88:01|5A:4917903669851779|5F20:Visa Prepaid CARDHOLDER|5F24:1029|5F25:10|5F30:200|5F34:1779|5F28:0840|82:5800|8C:9F02069F03069F1A0295055F2A029A039C019F37049F35019F45029F4C089F34038D0C910A8A0295059F37049F4C08|8D:910A8A0295059F37049F4C08|8E:000000000000000042031E031F00|8F:01|90:1BC26A25A4065150C430183B37923D91C113B3C59BD26BA28164DB559D3AD9AE3DE3A8D5B16D3A0AF20E0A685233D0D6338C6BC7DA328904C3D0E5B83145B9D4|92:38B26126B50BB7FDDD52C14F16E20CD0264828740BCD4AE6E83401A177D88BEA|93:3CAE8FBB1AEDC848CCB05435B30153E3D88535338E8BB86678247B01587A33CC582DA17325E5C0506A00F8DB0F6AAF8A6D742A38D87BD49AE5B02ACB539EB936|9F46:473E02F5876BA437589D4E76E77006B9FFD97C4604D2333865DAE520D0C33A2075938E6B7911B16EB4F1B4B037B4D811F1C2EF379EFB964B765CB02DACA23AE7|9F47:03|9F48:127E80F6DE89FDEAFC5A2EE829E459B96FCB1DF139B856856FCF0E8F236E73BF|9F4B:A20441508E714E7D98782132718416F8245D2C11215F4346BA48E7BD38E6F95A|5F2A:0840|9A:250716|9C:00|9F02:000000001000|9F03:000000000000|9F21:192557|9F37:052E33D2|9F41:4399|9F01:0840|9F1A:0840|9F1C:00000000|9F1E:0000000000000000|9F33:E0F8C8|9F35:22|9F40:F000F0A001|9F06:A0000000031010|9F07:FF00|9F08:0008|9F09:008C|9F0D:F040AC8000|9F0E:0000000000|9F0F:F040ACA000|9F26:31CB33538E68BCD0|9F27:80|9F36:865C|9F4C:82F4B82B4B9754EE|DF01:1779|DF02:20250716192557|DF04:52420403A8ACAB|DF05:Visa Prepaid|DF06:649|DF08:TC|DF09:00000000|DF0A:F0FB56FD56D73052582309056AA4C5CF",
+      "track1": "%B4917903669851779^Visa Prepaid CARDHOLDER^102920000000000000000000000?",
+      "track2": ";4917903669851779=102920000000000000000000000?",
+      "emv_data": {
+        "aid": "A0000000031010",
+        "application_label": "VISA PREPAID",
+        "application_preferred_name": "VISA PREPAID",
+        "kernel_id": "01",
+        "priority": "01",
+        "application_version": "0008",
+        "terminal_capabilities": "E0F8C8",
+        "additional_terminal_capabilities": "F000F0A001",
+        "terminal_type": "22",
+        "terminal_country_code": "0840",
+        "transaction_currency_code": "0840",
+        "acquirer_country_code": "0840",
+        "issuer_code_table_index": "01"
+      },
+      "security_features": {
+        "cvv": "085",
+        "cvv2": "085",
+        "icvv": "370",
+        "pin_verification_method": "online",
+        "cvm_list": [
+          "PIN",
+          "Signature",
+          "No CVM"
+        ],
+        "offline_auth_supported": false,
+        "online_auth_supported": true,
+        "contactless_supported": true,
+        "chip_supported": true,
+        "magstripe_supported": true,
+        "dda_supported": true,
+        "sda_supported": true,
+        "cda_supported": true
+      },
+      "transaction_data": {
+        "last_transaction_date": "20250716",
+        "last_transaction_time": "192557",
+        "transaction_counter": 63372,
+        "last_online_atc": 19212,
+        "pin_try_counter": 3,
+        "offline_spending_amount": 0,
+        "consecutive_offline_transactions": 0
+      },
+      "issuer_data": {
+        "issuer_country_code": "0840",
+        "issuer_identification_number": "491790",
+        "bank_name": "Visa Prepaid Bank",
+        "product_type": "CREDIT",
+        "card_program": "VISA PREPAID",
+        "issuer_url": "https://www.visaprepaid.com",
+        "customer_service_phone": "+1-800-555-0199"
+      },
+      "prepaid_specific": {
+        "card_type": "prepaid",
+        "balance_inquiry_supported": true,
+        "reload_supported": true,
+        "expiry_management": "balance_based",
+        "pin_change_supported": false,
+        "international_usage": true,
+        "merchant_category_restrictions": [],
+        "velocity_limits": {
+          "transactions_per_day": 10,
+          "amount_per_day": 100000
+        }
+      },
+      "additional_tlv": [
+        [
+          "DF30",
+          "01"
+        ],
+        [
+          "DF31",
+          "000000025000"
+        ],
+        [
+          "DF32",
+          "000000500000"
+        ],
+        [
+          "DF33",
+          "0840"
+        ],
+        [
+          "DF34",
+          "01"
+        ],
+        [
+          "DF35",
+          "20250716"
+        ]
+      ],
+      "balance_info": {
+        "current_balance": 25000,
+        "initial_balance": 25000,
+        "max_balance": 500000,
+        "last_balance_update": "2025-07-16T19:25:57.922576",
+        "balance_currency": "0840",
+        "low_balance_threshold": 50000.0,
+        "balance_inquiry_count": 0
+      },
+      "balance_data": {
+        "current_balance": 25000,
+        "initial_balance": 25000,
+        "max_balance": 500000,
+        "last_balance_update": "2025-07-16T19:25:57.922576",
+        "balance_currency": "0840",
+        "low_balance_threshold": 50000.0,
+        "balance_inquiry_count": 0
+      },
+      "card_category": "prepaid"
+    },
+    "gift_card": {
+      "uid": "B6557431FF30DE",
+      "atqa": "24D4",
+      "sak": "1B",
+      "protocol": "ISO14443A",
+      "card_type": "Gift Card Prepaid",
+      "pan": "6046547922826656",
+      "masked_pan": "604654******6656",
+      "expiry_date": "1127",
+      "service_code": "503",
+      "cvv": "166",
+      "cvv2": "166",
+      "icvv": "101",
+      "timestamp": "2025-07-16T19:25:57.923821",
+      "created_at": "2025-07-16 19:25:57",
+      "expires_at": "2027-11-01",
+      "card_config": {
+        "bin_ranges": [
+          "6040",
+          "6042",
+          "6043",
+          "6044",
+          "6045",
+          "6046"
+        ],
+        "aid": "A0000001523010",
+        "application_label": "GIFT CARD",
+        "application_preferred_name": "GIFT CARD",
+        "kernel_id": "04",
+        "terminal_type": "22",
+        "capabilities": "E0F8C8",
+        "currency_code": "0840",
+        "country_code": "0840",
+        "issuer_code_table_index": "04",
+        "application_version": "0001",
+        "pan_length": 16,
+        "cvv_length": 3,
+        "card_category": "prepaid",
+        "supported_features": [
+          "contactless",
+          "chip",
+          "magstripe",
+          "online",
+          "balance_inquiry"
+        ],
+        "verification_methods": [
+          "No CVM"
+        ],
+        "transaction_limits": {
+          "contactless_limit": 50000,
+          "offline_limit": 10000,
+          "floor_limit": 0,
+          "max_balance": 100000,
+          "reload_limit": 0
+        }
+      },
+      "supported_features": [
+        "contactless",
+        "chip",
+        "magstripe",
+        "online",
+        "balance_inquiry"
+      ],
+      "verification_methods": [
+        "No CVM"
+      ],
+      "transaction_limits": {
+        "contactless_limit": 50000,
+        "offline_limit": 10000,
+        "floor_limit": 0,
+        "max_balance": 100000,
+        "reload_limit": 0
+      },
+      "device_id": null,
+      "session_id": "9caee5b3",
+      "reader_type": null,
+      "initial_balance": 5000,
+      "tlv_data": "4F:A0000001523010|50:GIFT CARD|84:A0000001523010|87:01|88:01|5A:6046547922826656|5F20:Gift Card Prepaid CARDHOLDER|5F24:1127|5F25:11|5F30:503|5F34:6656|5F28:0840|82:5800|8C:9F02069F03069F1A0295055F2A029A039C019F37049F35019F45029F4C089F34038D0C910A8A0295059F37049F4C08|8D:910A8A0295059F37049F4C08|8E:000000000000000042031E031F00|8F:01|90:733BEE37387D03C525336AF8AD9E7B3C64C0D5E465C28AEF02778D7CDBD516A0E76CBA77DBFF9BC2EB0CAAAB782A45E8A6F205A5B27AE2977DE0995AC3297307|92:12139D602B0F88F720850342FE5F8E85734112F6C67DD309E3C36344664370AE|93:95561610BF2ABF6666F7FF3E1FD1D3311E25D6AFE8844DCC10E9B74A1E025825B893F8B0B2B5AE92A1DB2F8D31FB1409D607B4571B917A945B3F570CA58C5320|9F46:2FBE1B39110CD2E4610423FBFA67A4BBAC78BF92141DD3B51E558409144F63134130E8F544964699A054AB1762B4093D03938824E0C5A7F93BD28F7FEDF7C19C|9F47:03|9F48:20F5C7B8DD333782F19A269ADCD9AD21A732A857F9F7DB9B70B44740ED825CD4|9F4B:26FBF2C92D8353C0B5EA608BFBC902CE9940D240736BBB3E7871DA8813DD88B6|5F2A:0840|9A:250716|9C:00|9F02:000000001000|9F03:000000000000|9F21:192557|9F37:9850336C|9F41:9008|9F01:0840|9F1A:0840|9F1C:00000000|9F1E:0000000000000000|9F33:E0F8C8|9F35:22|9F40:F000F0A001|9F06:A0000001523010|9F07:FF00|9F08:0001|9F09:008C|9F0D:F040AC8000|9F0E:0000000000|9F0F:F040ACA000|9F26:8B30D5B85DC2F0D0|9F27:80|9F36:A53F|9F4C:F41026AFC3C82921|DF01:6656|DF02:20250716192557|DF04:B6557431FF30DE|DF05:Gift Card Prepaid|DF06:281|DF08:TC|DF09:00000000|DF0A:5157395563CCA72277B6A91C8B11EF18",
+      "track1": "%B6046547922826656^Gift Card Prepaid CARDHOLDER^112750300000000000000000000?",
+      "track2": ";6046547922826656=112750300000000000000000000?",
+      "emv_data": {
+        "aid": "A0000001523010",
+        "application_label": "GIFT CARD",
+        "application_preferred_name": "GIFT CARD",
+        "kernel_id": "04",
+        "priority": "01",
+        "application_version": "0001",
+        "terminal_capabilities": "E0F8C8",
+        "additional_terminal_capabilities": "F000F0A001",
+        "terminal_type": "22",
+        "terminal_country_code": "0840",
+        "transaction_currency_code": "0840",
+        "acquirer_country_code": "0840",
+        "issuer_code_table_index": "04"
+      },
+      "security_features": {
+        "cvv": "166",
+        "cvv2": "166",
+        "icvv": "101",
+        "pin_verification_method": "offline",
+        "cvm_list": [
+          "No CVM"
+        ],
+        "offline_auth_supported": false,
+        "online_auth_supported": true,
+        "contactless_supported": true,
+        "chip_supported": true,
+        "magstripe_supported": true,
+        "dda_supported": true,
+        "sda_supported": true,
+        "cda_supported": true
+      },
+      "transaction_data": {
+        "last_transaction_date": "20250716",
+        "last_transaction_time": "192557",
+        "transaction_counter": 29734,
+        "last_online_atc": 57762,
+        "pin_try_counter": 3,
+        "offline_spending_amount": 0,
+        "consecutive_offline_transactions": 0
+      },
+      "issuer_data": {
+        "issuer_country_code": "0840",
+        "issuer_identification_number": "604654",
+        "bank_name": "Gift Card Prepaid Bank",
+        "product_type": "CREDIT",
+        "card_program": "GIFT CARD",
+        "issuer_url": "https://www.giftcardprepaid.com",
+        "customer_service_phone": "+1-800-555-0199"
+      },
+      "prepaid_specific": {
+        "card_type": "prepaid",
+        "balance_inquiry_supported": true,
+        "reload_supported": true,
+        "expiry_management": "balance_based",
+        "pin_change_supported": false,
+        "international_usage": true,
+        "merchant_category_restrictions": [],
+        "velocity_limits": {
+          "transactions_per_day": 10,
+          "amount_per_day": 100000
+        }
+      },
+      "additional_tlv": [
+        [
+          "DF30",
+          "01"
+        ],
+        [
+          "DF31",
+          "000000005000"
+        ],
+        [
+          "DF32",
+          "000000100000"
+        ],
+        [
+          "DF33",
+          "0840"
+        ],
+        [
+          "DF34",
+          "01"
+        ],
+        [
+          "DF35",
+          "20250716"
+        ]
+      ],
+      "balance_info": {
+        "current_balance": 5000,
+        "initial_balance": 5000,
+        "max_balance": 100000,
+        "last_balance_update": "2025-07-16T19:25:57.924313",
+        "balance_currency": "0840",
+        "low_balance_threshold": 10000.0,
+        "balance_inquiry_count": 0
+      },
+      "balance_data": {
+        "current_balance": 5000,
+        "initial_balance": 5000,
+        "max_balance": 100000,
+        "last_balance_update": "2025-07-16T19:25:57.924313",
+        "balance_currency": "0840",
+        "low_balance_threshold": 10000.0,
+        "balance_inquiry_count": 0
+      },
+      "card_category": "prepaid"
+    }
+  },
+  "test_results": {
+    "debit_pin_check": {
+      "pin_required": true,
+      "pin_required_above": 2500,
+      "verification_method": "PIN",
+      "offline_allowed": false,
+      "daily_limit_check": true
+    },
+    "debit_daily_limits": {
+      "can_process": true,
+      "daily_limit": 50000,
+      "daily_spent": 15000,
+      "remaining_limit": 35000,
+      "limit_exceeded": false,
+      "suggested_amount": 3000
+    },
+    "prepaid_purchase": {
+      "approved": true,
+      "new_balance": 23500,
+      "transaction_amount": 1500,
+      "response_code": "00",
+      "message": "Transaction approved",
+      "low_balance_warning": true,
+      "timestamp": "2025-07-16T19:25:57.922785"
+    },
+    "prepaid_reload": {
+      "success": true,
+      "message": "Successfully reloaded $50.00",
+      "response_code": "00",
+      "old_balance": 25000,
+      "new_balance": 30000,
+      "reload_amount": 5000,
+      "timestamp": "2025-07-16T19:25:57.923004"
+    }
+  }
+}

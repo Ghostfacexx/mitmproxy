@@ -1,0 +1,438 @@
+2025-07-17 00:55:18,069 - INFO - User selected option: 1
+2025-07-17 00:55:18,070 - ERROR - Failed to start MITM server: [Errno 98] Address already in use
+2025-07-17 00:55:18,070 - INFO - MITM server stopped
+2025-07-17 00:55:29,139 - INFO - Shutdown signal received
+2025-07-17 00:55:31,485 - INFO - User selected option: 1
+2025-07-17 00:55:31,486 - WARNING - NFCGate service not available, attempting to start...
+2025-07-17 00:55:31,486 - INFO - Attempting to start NFCGate service...
+2025-07-17 00:55:31,487 - INFO - Mock NFCGate service started on 127.0.0.1:5566
+2025-07-17 00:55:33,487 - ERROR - Failed to start NFCGate service. MITM may not function properly.
+2025-07-17 00:55:33,487 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 00:55:33,488 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 00:55:33,488 - INFO - PIN Bypass Features:
+2025-07-17 00:55:33,488 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 00:55:33,488 - INFO -   - Auto Contactless Approval: True
+2025-07-17 00:55:33,488 - INFO -   - Amount Limit Override: True
+2025-07-17 00:55:33,488 - INFO -   - Force Contactless Mode: True
+2025-07-17 00:55:33,488 - INFO -   - Auto Success Injection: True
+2025-07-17 00:59:09,362 - INFO - Shutdown signal received
+2025-07-17 00:59:12,544 - INFO - User selected option: 1
+2025-07-17 00:59:12,546 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 00:59:12,546 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 00:59:12,546 - INFO - PIN Bypass Features:
+2025-07-17 00:59:12,546 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 00:59:12,546 - INFO -   - Auto Contactless Approval: True
+2025-07-17 00:59:12,547 - INFO -   - Amount Limit Override: True
+2025-07-17 00:59:12,547 - INFO -   - Force Contactless Mode: True
+2025-07-17 00:59:12,547 - INFO -   - Auto Success Injection: True
+2025-07-17 01:03:26,822 - INFO - Accepted connection from ('167.94.138.203', 48412)
+2025-07-17 01:03:26,823 - INFO - Handling new connection from ('167.94.138.203', 48412)
+2025-07-17 01:03:26,823 - INFO - ✅ Connected to NFCGate on attempt 1 for session 57727cb9
+2025-07-17 01:03:32,063 - INFO - Accepted connection from ('167.94.138.203', 48474)
+2025-07-17 01:03:32,064 - INFO - Handling new connection from ('167.94.138.203', 48474)
+2025-07-17 01:03:32,064 - INFO - ✅ Connected to NFCGate on attempt 1 for session 6908d798
+2025-07-17 01:03:40,071 - INFO - Accepted connection from ('167.94.138.203', 40192)
+2025-07-17 01:03:40,072 - INFO - Handling new connection from ('167.94.138.203', 40192)
+2025-07-17 01:03:40,072 - INFO - ✅ Connected to NFCGate on attempt 1 for session 3b6cbbde
+2025-07-17 01:03:42,076 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 6908d798 ended after 10.0s
+2025-07-17 01:03:42,077 - INFO - Session 6908d798 cleaned up
+2025-07-17 01:03:56,429 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 3b6cbbde ended after 16.4s
+2025-07-17 01:03:56,429 - INFO - Session 3b6cbbde cleaned up
+2025-07-17 01:04:01,028 - INFO - Accepted connection from ('167.94.138.203', 49132)
+2025-07-17 01:04:01,029 - INFO - Handling new connection from ('167.94.138.203', 49132)
+2025-07-17 01:04:01,029 - INFO - ✅ Connected to NFCGate on attempt 1 for session 73554d85
+2025-07-17 01:04:16,529 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 73554d85 ended after 15.5s
+2025-07-17 01:04:16,529 - INFO - Session 73554d85 cleaned up
+2025-07-17 01:04:16,553 - INFO - Accepted connection from ('167.94.138.203', 40382)
+2025-07-17 01:04:16,553 - INFO - Handling new connection from ('167.94.138.203', 40382)
+2025-07-17 01:04:16,554 - INFO - ✅ Connected to NFCGate on attempt 1 for session 00a8d413
+2025-07-17 01:04:32,201 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 00a8d413 ended after 15.6s
+2025-07-17 01:04:32,201 - INFO - Session 00a8d413 cleaned up
+2025-07-17 01:10:32,313 - INFO - Accepted connection from ('37.63.3.88', 33124)
+2025-07-17 01:10:32,314 - INFO - Handling new connection from ('37.63.3.88', 33124)
+2025-07-17 01:10:32,315 - INFO - ✅ Connected to NFCGate on attempt 1 for session c8744b37
+2025-07-17 01:11:03,000 - INFO - Accepted connection from ('127.0.0.1', 54442)
+2025-07-17 01:11:03,001 - INFO - Handling new connection from ('127.0.0.1', 54442)
+2025-07-17 01:11:03,001 - INFO - ✅ Connected to NFCGate on attempt 1 for session 4acaebec
+2025-07-17 01:11:03,500 - INFO - Accepted connection from ('127.0.0.1', 54456)
+2025-07-17 01:11:03,501 - INFO - Handling new connection from ('127.0.0.1', 54456)
+2025-07-17 01:11:03,501 - INFO - ✅ Connected to NFCGate on attempt 1 for session fa39128d
+2025-07-17 01:11:04,004 - INFO - Accepted connection from ('127.0.0.1', 54460)
+2025-07-17 01:11:04,005 - INFO - Handling new connection from ('127.0.0.1', 54460)
+2025-07-17 01:11:04,005 - INFO - ✅ Connected to NFCGate on attempt 1 for session 247b0380
+2025-07-17 01:11:05,583 - INFO - Accepted connection from ('77.85.97.37', 48992)
+2025-07-17 01:11:05,584 - INFO - Handling new connection from ('77.85.97.37', 48992)
+2025-07-17 01:11:05,584 - INFO - ✅ Connected to NFCGate on attempt 1 for session f33594c2
+2025-07-17 01:11:10,785 - INFO - [NFCGate-MITM] SESSION_ENDED: Session c8744b37 ended after 38.5s
+2025-07-17 01:11:10,785 - INFO - Session c8744b37 cleaned up
+2025-07-17 01:11:12,357 - INFO - Accepted connection from ('37.63.3.88', 33198)
+2025-07-17 01:11:12,357 - INFO - Handling new connection from ('37.63.3.88', 33198)
+2025-07-17 01:11:12,358 - INFO - ✅ Connected to NFCGate on attempt 1 for session 17ecda46
+2025-07-17 01:11:13,013 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 4acaebec ended after 10.0s
+2025-07-17 01:11:13,014 - INFO - Session 4acaebec cleaned up
+2025-07-17 01:11:13,513 - INFO - [NFCGate-MITM] SESSION_ENDED: Session fa39128d ended after 10.0s
+2025-07-17 01:11:13,513 - INFO - Session fa39128d cleaned up
+2025-07-17 01:11:14,016 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 247b0380 ended after 10.0s
+2025-07-17 01:11:14,016 - INFO - Session 247b0380 cleaned up
+2025-07-17 01:11:14,043 - INFO - [NFCGate-MITM] SESSION_ENDED: Session f33594c2 ended after 8.5s
+2025-07-17 01:11:14,043 - INFO - Session f33594c2 cleaned up
+2025-07-17 01:11:15,523 - INFO - Accepted connection from ('77.85.97.37', 42838)
+2025-07-17 01:11:15,523 - INFO - Handling new connection from ('77.85.97.37', 42838)
+2025-07-17 01:11:15,524 - INFO - ✅ Connected to NFCGate on attempt 1 for session 028a47b2
+2025-07-17 01:11:34,203 - INFO - Accepted connection from ('127.0.0.1', 33886)
+2025-07-17 01:11:34,204 - INFO - Handling new connection from ('127.0.0.1', 33886)
+2025-07-17 01:11:34,205 - INFO - ✅ Connected to NFCGate on attempt 1 for session 14f9dab3
+2025-07-17 01:11:34,704 - INFO - Accepted connection from ('127.0.0.1', 55076)
+2025-07-17 01:11:34,707 - INFO - Handling new connection from ('127.0.0.1', 55076)
+2025-07-17 01:11:34,707 - INFO - ✅ Connected to NFCGate on attempt 1 for session 67d7259e
+2025-07-17 01:11:35,207 - INFO - Accepted connection from ('127.0.0.1', 55082)
+2025-07-17 01:11:35,207 - INFO - Handling new connection from ('127.0.0.1', 55082)
+2025-07-17 01:11:35,208 - INFO - ✅ Connected to NFCGate on attempt 1 for session 61ba274d
+2025-07-17 01:11:35,708 - INFO - Accepted connection from ('127.0.0.1', 55084)
+2025-07-17 01:11:35,708 - INFO - Handling new connection from ('127.0.0.1', 55084)
+2025-07-17 01:11:35,709 - INFO - ✅ Connected to NFCGate on attempt 1 for session b9be975a
+2025-07-17 01:11:36,210 - INFO - Accepted connection from ('127.0.0.1', 55098)
+2025-07-17 01:11:36,210 - INFO - Handling new connection from ('127.0.0.1', 55098)
+2025-07-17 01:11:36,211 - INFO - ✅ Connected to NFCGate on attempt 1 for session 794bd08f
+2025-07-17 01:11:36,709 - INFO - Accepted connection from ('127.0.0.1', 55112)
+2025-07-17 01:11:36,710 - INFO - Handling new connection from ('127.0.0.1', 55112)
+2025-07-17 01:11:36,711 - INFO - ✅ Connected to NFCGate on attempt 1 for session 14b179d7
+2025-07-17 01:11:37,212 - INFO - Accepted connection from ('127.0.0.1', 55118)
+2025-07-17 01:11:37,213 - INFO - Handling new connection from ('127.0.0.1', 55118)
+2025-07-17 01:11:37,213 - INFO - ✅ Connected to NFCGate on attempt 1 for session 34f22f78
+2025-07-17 01:11:37,713 - INFO - Accepted connection from ('127.0.0.1', 55128)
+2025-07-17 01:11:37,713 - INFO - Handling new connection from ('127.0.0.1', 55128)
+2025-07-17 01:11:37,714 - INFO - ✅ Connected to NFCGate on attempt 1 for session 751e0e12
+2025-07-17 01:11:38,213 - INFO - Accepted connection from ('127.0.0.1', 55140)
+2025-07-17 01:11:38,214 - INFO - Handling new connection from ('127.0.0.1', 55140)
+2025-07-17 01:11:38,214 - INFO - ✅ Connected to NFCGate on attempt 1 for session 2bd46226
+2025-07-17 01:11:38,714 - INFO - Accepted connection from ('127.0.0.1', 55152)
+2025-07-17 01:11:38,715 - INFO - Handling new connection from ('127.0.0.1', 55152)
+2025-07-17 01:11:38,715 - INFO - ✅ Connected to NFCGate on attempt 1 for session eb27d17e
+2025-07-17 01:11:44,218 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 14f9dab3 ended after 10.0s
+2025-07-17 01:11:44,218 - INFO - Session 14f9dab3 cleaned up
+2025-07-17 01:11:44,717 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 67d7259e ended after 10.0s
+2025-07-17 01:11:44,717 - INFO - Session 67d7259e cleaned up
+2025-07-17 01:11:45,219 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 61ba274d ended after 10.0s
+2025-07-17 01:11:45,220 - INFO - Session 61ba274d cleaned up
+2025-07-17 01:11:45,720 - INFO - [NFCGate-MITM] SESSION_ENDED: Session b9be975a ended after 10.0s
+2025-07-17 01:11:45,721 - INFO - Session b9be975a cleaned up
+2025-07-17 01:11:46,223 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 794bd08f ended after 10.0s
+2025-07-17 01:11:46,223 - INFO - Session 794bd08f cleaned up
+2025-07-17 01:11:46,723 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 14b179d7 ended after 10.0s
+2025-07-17 01:11:46,724 - INFO - Session 14b179d7 cleaned up
+2025-07-17 01:11:47,221 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 34f22f78 ended after 10.0s
+2025-07-17 01:11:47,221 - INFO - Session 34f22f78 cleaned up
+2025-07-17 01:11:47,725 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 751e0e12 ended after 10.0s
+2025-07-17 01:11:47,726 - INFO - Session 751e0e12 cleaned up
+2025-07-17 01:11:48,226 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 2bd46226 ended after 10.0s
+2025-07-17 01:11:48,226 - INFO - Session 2bd46226 cleaned up
+2025-07-17 01:11:48,726 - INFO - [NFCGate-MITM] SESSION_ENDED: Session eb27d17e ended after 10.0s
+2025-07-17 01:11:48,727 - INFO - Session eb27d17e cleaned up
+2025-07-17 01:13:21,508 - INFO - Shutdown signal received
+2025-07-17 01:13:42,228 - INFO - User selected option: 1
+2025-07-17 01:13:42,230 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 01:13:42,230 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 01:13:42,230 - INFO - PIN Bypass Features:
+2025-07-17 01:13:42,230 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 01:13:42,230 - INFO -   - Auto Contactless Approval: True
+2025-07-17 01:13:42,230 - INFO -   - Amount Limit Override: True
+2025-07-17 01:13:42,230 - INFO -   - Force Contactless Mode: True
+2025-07-17 01:13:42,230 - INFO -   - Auto Success Injection: True
+2025-07-17 01:18:29,544 - INFO - Shutdown signal received
+2025-07-17 01:18:34,402 - INFO - User selected option: 1
+2025-07-17 01:18:34,403 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 01:18:34,403 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 01:18:34,404 - INFO - PIN Bypass Features:
+2025-07-17 01:18:34,404 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 01:18:34,404 - INFO -   - Auto Contactless Approval: True
+2025-07-17 01:18:34,404 - INFO -   - Amount Limit Override: True
+2025-07-17 01:18:34,404 - INFO -   - Force Contactless Mode: True
+2025-07-17 01:18:34,404 - INFO -   - Auto Success Injection: True
+2025-07-17 01:20:57,806 - INFO - Accepted connection from ('185.218.84.40', 4972)
+2025-07-17 01:20:57,807 - INFO - Handling new connection from ('185.218.84.40', 4972)
+2025-07-17 01:20:57,807 - INFO - ✅ Connected to NFCGate on attempt 1 for session 9cd24a5e
+2025-07-17 01:21:12,807 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 9cd24a5e ended after 15.0s
+2025-07-17 01:21:12,807 - INFO - Session 9cd24a5e cleaned up
+2025-07-17 01:28:46,042 - INFO - Accepted connection from ('77.85.97.37', 45860)
+2025-07-17 01:28:46,043 - INFO - Handling new connection from ('77.85.97.37', 45860)
+2025-07-17 01:28:46,043 - INFO - ✅ Connected to NFCGate on attempt 1 for session 1bab8813
+2025-07-17 01:29:42,894 - INFO - Accepted connection from ('37.63.3.88', 33142)
+2025-07-17 01:29:42,895 - INFO - Handling new connection from ('37.63.3.88', 33142)
+2025-07-17 01:29:42,895 - INFO - ✅ Connected to NFCGate on attempt 1 for session 8228f084
+2025-07-17 01:29:47,862 - INFO - Accepted connection from ('37.63.3.88', 33268)
+2025-07-17 01:29:47,864 - INFO - Handling new connection from ('37.63.3.88', 33268)
+2025-07-17 01:29:47,864 - INFO - ✅ Connected to NFCGate on attempt 1 for session 95894a25
+2025-07-17 01:29:52,703 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 1bab8813 ended after 66.7s
+2025-07-17 01:29:52,704 - INFO - Session 1bab8813 cleaned up
+2025-07-17 01:29:52,913 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 8228f084 ended after 10.0s
+2025-07-17 01:29:52,914 - INFO - Session 8228f084 cleaned up
+2025-07-17 01:29:57,413 - INFO - Accepted connection from ('77.85.97.37', 48834)
+2025-07-17 01:29:57,413 - INFO - Handling new connection from ('77.85.97.37', 48834)
+2025-07-17 01:29:57,414 - INFO - ✅ Connected to NFCGate on attempt 1 for session 96387889
+2025-07-17 01:31:02,409 - INFO - Shutdown signal received
+2025-07-17 01:31:23,714 - INFO - User selected option: 1
+2025-07-17 01:31:23,717 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 01:31:23,717 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 01:31:23,717 - INFO - PIN Bypass Features:
+2025-07-17 01:31:23,717 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 01:31:23,717 - INFO -   - Auto Contactless Approval: True
+2025-07-17 01:31:23,717 - INFO -   - Amount Limit Override: True
+2025-07-17 01:31:23,717 - INFO -   - Force Contactless Mode: True
+2025-07-17 01:31:23,717 - INFO -   - Auto Success Injection: True
+2025-07-17 01:32:23,592 - INFO - Accepted connection from ('37.63.3.88', 33278)
+2025-07-17 01:32:23,592 - INFO - Handling new connection from ('37.63.3.88', 33278)
+2025-07-17 01:32:23,593 - INFO - ✅ Connected to NFCGate on attempt 1 for session 37e26ef2
+2025-07-17 01:32:25,595 - INFO - Accepted connection from ('77.85.97.37', 36972)
+2025-07-17 01:32:25,596 - INFO - Handling new connection from ('77.85.97.37', 36972)
+2025-07-17 01:32:25,596 - INFO - ✅ Connected to NFCGate on attempt 1 for session f0c08616
+2025-07-17 01:32:50,812 - INFO - Shutdown signal received
+2025-07-17 01:33:06,822 - INFO - User selected option: 1
+2025-07-17 01:33:06,823 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 01:33:06,823 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 01:33:06,823 - INFO - PIN Bypass Features:
+2025-07-17 01:33:06,823 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 01:33:06,823 - INFO -   - Auto Contactless Approval: True
+2025-07-17 01:33:06,823 - INFO -   - Amount Limit Override: True
+2025-07-17 01:33:06,824 - INFO -   - Force Contactless Mode: True
+2025-07-17 01:33:06,824 - INFO -   - Auto Success Injection: True
+2025-07-17 01:33:47,417 - INFO - Accepted connection from ('77.85.97.37', 58464)
+2025-07-17 01:33:47,417 - INFO - Handling new connection from ('77.85.97.37', 58464)
+2025-07-17 01:33:47,418 - INFO - ✅ Connected to NFCGate on attempt 1 for session bde1a8dd
+2025-07-17 01:33:49,789 - INFO - Accepted connection from ('37.63.3.88', 33162)
+2025-07-17 01:33:49,790 - INFO - Handling new connection from ('37.63.3.88', 33162)
+2025-07-17 01:33:49,791 - INFO - ✅ Connected to NFCGate on attempt 1 for session d28f7513
+2025-07-17 01:33:52,802 - INFO - [NFCGate-MITM] SESSION_ENDED: Session d28f7513 ended after 3.0s
+2025-07-17 01:33:52,802 - INFO - Session d28f7513 cleaned up
+2025-07-17 01:33:52,945 - INFO - Accepted connection from ('37.63.3.88', 33194)
+2025-07-17 01:33:52,945 - INFO - Handling new connection from ('37.63.3.88', 33194)
+2025-07-17 01:33:52,946 - INFO - ✅ Connected to NFCGate on attempt 1 for session ca60109f
+2025-07-17 01:33:55,898 - INFO - [NFCGate-MITM] SESSION_ENDED: Session ca60109f ended after 3.0s
+2025-07-17 01:33:55,898 - INFO - Session ca60109f cleaned up
+2025-07-17 01:33:56,065 - INFO - Accepted connection from ('37.63.3.88', 33088)
+2025-07-17 01:33:56,066 - INFO - Handling new connection from ('37.63.3.88', 33088)
+2025-07-17 01:33:56,067 - INFO - ✅ Connected to NFCGate on attempt 1 for session fd5b3135
+2025-07-17 01:33:57,257 - INFO - [NFCGate-MITM] SESSION_ENDED: Session bde1a8dd ended after 9.8s
+2025-07-17 01:33:57,257 - INFO - Session bde1a8dd cleaned up
+2025-07-17 01:33:58,156 - INFO - Accepted connection from ('77.85.97.37', 48450)
+2025-07-17 01:33:58,157 - INFO - Handling new connection from ('77.85.97.37', 48450)
+2025-07-17 01:33:58,158 - INFO - ✅ Connected to NFCGate on attempt 1 for session 2014e425
+2025-07-17 01:35:03,548 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 2014e425 ended after 65.4s
+2025-07-17 01:35:03,548 - INFO - Session 2014e425 cleaned up
+2025-07-17 01:35:07,771 - INFO - Shutdown signal received
+2025-07-17 01:35:10,075 - INFO - User selected option: 1
+2025-07-17 01:35:10,076 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 01:35:10,076 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 01:35:10,076 - INFO - PIN Bypass Features:
+2025-07-17 01:35:10,077 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 01:35:10,077 - INFO -   - Auto Contactless Approval: True
+2025-07-17 01:35:10,077 - INFO -   - Amount Limit Override: True
+2025-07-17 01:35:10,077 - INFO -   - Force Contactless Mode: True
+2025-07-17 01:35:10,077 - INFO -   - Auto Success Injection: True
+2025-07-17 01:35:43,286 - INFO - Accepted connection from ('37.63.3.88', 33056)
+2025-07-17 01:35:43,287 - INFO - Handling new connection from ('37.63.3.88', 33056)
+2025-07-17 01:35:43,288 - INFO - ✅ Connected to NFCGate on attempt 1 for session aa480413
+2025-07-17 01:35:50,398 - INFO - Accepted connection from ('77.85.97.37', 55946)
+2025-07-17 01:35:50,398 - INFO - Handling new connection from ('77.85.97.37', 55946)
+2025-07-17 01:35:50,399 - INFO - ✅ Connected to NFCGate on attempt 1 for session 70e6cfe8
+2025-07-17 01:36:40,855 - INFO - Accepted connection from ('37.63.3.88', 33036)
+2025-07-17 01:36:40,857 - INFO - Handling new connection from ('37.63.3.88', 33036)
+2025-07-17 01:36:40,857 - INFO - ✅ Connected to NFCGate on attempt 1 for session 2d04dd63
+2025-07-17 01:36:43,838 - INFO - Accepted connection from ('77.85.97.37', 51556)
+2025-07-17 01:36:43,840 - INFO - Handling new connection from ('77.85.97.37', 51556)
+2025-07-17 01:36:43,841 - INFO - ✅ Connected to NFCGate on attempt 1 for session 4e129c5d
+2025-07-17 01:36:43,848 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 2d04dd63 ended after 3.0s
+2025-07-17 01:36:43,848 - INFO - Session 2d04dd63 cleaned up
+2025-07-17 01:36:49,526 - INFO - Accepted connection from ('37.63.3.88', 33270)
+2025-07-17 01:36:49,527 - INFO - Handling new connection from ('37.63.3.88', 33270)
+2025-07-17 01:36:49,528 - INFO - ✅ Connected to NFCGate on attempt 1 for session ef952daa
+2025-07-17 01:37:39,039 - INFO - Accepted connection from ('77.85.97.37', 46298)
+2025-07-17 01:37:39,039 - INFO - Handling new connection from ('77.85.97.37', 46298)
+2025-07-17 01:37:39,040 - INFO - ✅ Connected to NFCGate on attempt 1 for session f93ce30b
+2025-07-17 01:37:42,260 - INFO - Accepted connection from ('37.63.3.88', 33248)
+2025-07-17 01:37:42,260 - INFO - Handling new connection from ('37.63.3.88', 33248)
+2025-07-17 01:37:42,261 - INFO - ✅ Connected to NFCGate on attempt 1 for session 746277d1
+2025-07-17 01:37:46,519 - INFO - Accepted connection from ('77.85.97.37', 46314)
+2025-07-17 01:37:46,519 - INFO - Handling new connection from ('77.85.97.37', 46314)
+2025-07-17 01:37:46,520 - INFO - ✅ Connected to NFCGate on attempt 1 for session 5bc6e928
+2025-07-17 01:37:46,530 - INFO - [NFCGate-MITM] SESSION_ENDED: Session f93ce30b ended after 7.5s
+2025-07-17 01:37:46,530 - INFO - Session f93ce30b cleaned up
+2025-07-17 01:37:49,096 - INFO - Accepted connection from ('37.63.3.88', 33154)
+2025-07-17 01:37:49,097 - INFO - Handling new connection from ('37.63.3.88', 33154)
+2025-07-17 01:37:49,098 - INFO - ✅ Connected to NFCGate on attempt 1 for session 4cc98780
+2025-07-17 01:37:53,579 - INFO - Accepted connection from ('77.85.97.37', 39994)
+2025-07-17 01:37:53,580 - INFO - Handling new connection from ('77.85.97.37', 39994)
+2025-07-17 01:37:53,581 - INFO - ✅ Connected to NFCGate on attempt 1 for session 4e30ae52
+2025-07-17 01:37:53,584 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 5bc6e928 ended after 7.1s
+2025-07-17 01:37:53,585 - INFO - Session 5bc6e928 cleaned up
+2025-07-17 01:37:53,586 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 746277d1 ended after 11.3s
+2025-07-17 01:37:53,586 - INFO - Session 746277d1 cleaned up
+2025-07-17 01:39:09,331 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 4e129c5d ended after 145.5s
+2025-07-17 01:39:09,331 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 70e6cfe8 ended after 198.9s
+2025-07-17 01:39:09,331 - INFO - Session 4e129c5d cleaned up
+2025-07-17 01:39:09,332 - INFO - Session 70e6cfe8 cleaned up
+2025-07-17 01:39:09,333 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 4e30ae52 ended after 75.8s
+2025-07-17 01:39:09,334 - INFO - Session 4e30ae52 cleaned up
+2025-07-17 01:39:38,569 - INFO - Accepted connection from ('37.63.3.88', 33128)
+2025-07-17 01:39:38,569 - INFO - Handling new connection from ('37.63.3.88', 33128)
+2025-07-17 01:39:38,570 - INFO - ✅ Connected to NFCGate on attempt 1 for session 659f26d6
+2025-07-17 01:39:43,561 - INFO - Accepted connection from ('77.85.97.37', 60566)
+2025-07-17 01:39:43,561 - INFO - Handling new connection from ('77.85.97.37', 60566)
+2025-07-17 01:39:43,562 - INFO - ✅ Connected to NFCGate on attempt 1 for session b7888d99
+2025-07-17 01:40:36,318 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 659f26d6 ended after 57.7s
+2025-07-17 01:40:36,318 - INFO - Session 659f26d6 cleaned up
+2025-07-17 01:40:36,455 - INFO - Accepted connection from ('37.63.3.88', 33062)
+2025-07-17 01:40:36,455 - INFO - Handling new connection from ('37.63.3.88', 33062)
+2025-07-17 01:40:36,456 - INFO - ✅ Connected to NFCGate on attempt 1 for session 5fe203b9
+2025-07-17 01:40:38,151 - INFO - Accepted connection from ('77.85.97.37', 58482)
+2025-07-17 01:40:38,152 - INFO - Handling new connection from ('77.85.97.37', 58482)
+2025-07-17 01:40:38,152 - INFO - ✅ Connected to NFCGate on attempt 1 for session 07f27622
+2025-07-17 01:40:38,155 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 5fe203b9 ended after 1.7s
+2025-07-17 01:40:38,155 - INFO - Session 5fe203b9 cleaned up
+2025-07-17 01:40:41,939 - INFO - Accepted connection from ('37.63.3.88', 33218)
+2025-07-17 01:40:41,939 - INFO - Handling new connection from ('37.63.3.88', 33218)
+2025-07-17 01:40:41,940 - INFO - ✅ Connected to NFCGate on attempt 1 for session b20e70b7
+2025-07-17 01:41:03,027 - INFO - Accepted connection from ('77.85.97.37', 49866)
+2025-07-17 01:41:03,027 - INFO - Handling new connection from ('77.85.97.37', 49866)
+2025-07-17 01:41:03,028 - INFO - ✅ Connected to NFCGate on attempt 1 for session 4ef20180
+2025-07-17 01:41:08,403 - INFO - Accepted connection from ('37.63.3.88', 33100)
+2025-07-17 01:41:08,404 - INFO - Handling new connection from ('37.63.3.88', 33100)
+2025-07-17 01:41:08,404 - INFO - ✅ Connected to NFCGate on attempt 1 for session c8646967
+2025-07-17 01:41:10,702 - INFO - Accepted connection from ('77.85.97.37', 59638)
+2025-07-17 01:41:10,702 - INFO - Handling new connection from ('77.85.97.37', 59638)
+2025-07-17 01:41:10,703 - INFO - ✅ Connected to NFCGate on attempt 1 for session a89ae30e
+2025-07-17 01:41:10,706 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 4ef20180 ended after 7.7s
+2025-07-17 01:41:10,706 - INFO - Session 4ef20180 cleaned up
+2025-07-17 01:42:28,435 - INFO - Accepted connection from ('77.85.97.37', 46944)
+2025-07-17 01:42:28,436 - INFO - Handling new connection from ('77.85.97.37', 46944)
+2025-07-17 01:42:28,437 - INFO - ✅ Connected to NFCGate on attempt 1 for session 0c883521
+2025-07-17 01:42:29,331 - ERROR - Menu error: 
+2025-07-17 02:02:04,761 - INFO - User selected option: 1
+2025-07-17 02:02:04,762 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 02:02:04,763 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 02:02:04,763 - INFO - PIN Bypass Features:
+2025-07-17 02:02:04,763 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 02:02:04,763 - INFO -   - Auto Contactless Approval: True
+2025-07-17 02:02:04,763 - INFO -   - Amount Limit Override: True
+2025-07-17 02:02:04,763 - INFO -   - Force Contactless Mode: True
+2025-07-17 02:02:04,763 - INFO -   - Auto Success Injection: True
+2025-07-17 02:02:21,491 - INFO - Accepted connection from ('37.63.3.88', 33168)
+2025-07-17 02:02:21,492 - INFO - Handling new connection from ('37.63.3.88', 33168)
+2025-07-17 02:02:21,493 - INFO - ✅ Connected to NFCGate on attempt 1 for session 6203fc9f
+2025-07-17 02:02:31,029 - INFO - Accepted connection from ('77.85.97.37', 33806)
+2025-07-17 02:02:31,030 - INFO - Handling new connection from ('77.85.97.37', 33806)
+2025-07-17 02:02:31,030 - INFO - ✅ Connected to NFCGate on attempt 1 for session 24b7e7fa
+2025-07-17 02:03:02,453 - INFO - Shutdown signal received
+2025-07-17 02:03:28,534 - INFO - User selected option: 1
+2025-07-17 02:03:28,536 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 02:03:28,536 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 02:03:28,536 - INFO - PIN Bypass Features:
+2025-07-17 02:03:28,536 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 02:03:28,537 - INFO -   - Auto Contactless Approval: True
+2025-07-17 02:03:28,537 - INFO -   - Amount Limit Override: True
+2025-07-17 02:03:28,537 - INFO -   - Force Contactless Mode: True
+2025-07-17 02:03:28,537 - INFO -   - Auto Success Injection: True
+2025-07-17 02:03:47,068 - INFO - Accepted connection from ('37.63.3.88', 33176)
+2025-07-17 02:03:47,068 - INFO - Handling new connection from ('37.63.3.88', 33176)
+2025-07-17 02:03:47,069 - INFO - ✅ Connected to NFCGate on attempt 1 for session a37cd070
+2025-07-17 02:03:53,980 - INFO - Accepted connection from ('77.85.97.37', 49272)
+2025-07-17 02:03:53,980 - INFO - Handling new connection from ('77.85.97.37', 49272)
+2025-07-17 02:03:53,982 - INFO - ✅ Connected to NFCGate on attempt 1 for session f116d471
+2025-07-17 02:04:52,726 - INFO - Shutdown signal received
+2025-07-17 02:04:55,839 - INFO - User selected option: 1
+2025-07-17 02:04:55,840 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 02:04:55,840 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 02:04:55,841 - INFO - PIN Bypass Features:
+2025-07-17 02:04:55,841 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 02:04:55,841 - INFO -   - Auto Contactless Approval: True
+2025-07-17 02:04:55,841 - INFO -   - Amount Limit Override: True
+2025-07-17 02:04:55,841 - INFO -   - Force Contactless Mode: True
+2025-07-17 02:04:55,841 - INFO -   - Auto Success Injection: True
+2025-07-17 02:05:30,781 - INFO - Accepted connection from ('77.85.97.37', 51602)
+2025-07-17 02:05:30,782 - INFO - Handling new connection from ('77.85.97.37', 51602)
+2025-07-17 02:05:30,782 - INFO - ✅ Connected to NFCGate on attempt 1 for session 2934343e
+2025-07-17 02:05:34,368 - INFO - Accepted connection from ('37.63.3.88', 33190)
+2025-07-17 02:05:34,369 - INFO - Handling new connection from ('37.63.3.88', 33190)
+2025-07-17 02:05:34,369 - INFO - ✅ Connected to NFCGate on attempt 1 for session f12e0e9d
+2025-07-17 02:05:39,941 - INFO - PIN bypass applied
+2025-07-17 02:05:39,941 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:05:39,945 - INFO - [NFCGate-MITM] PIN bypass applied in session 2934343e
+2025-07-17 02:05:42,543 - INFO - PIN bypass applied
+2025-07-17 02:05:42,543 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:05:42,543 - INFO - [NFCGate-MITM] PIN bypass applied in session 2934343e
+2025-07-17 02:05:43,303 - INFO - PIN bypass applied
+2025-07-17 02:05:43,304 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:05:43,304 - INFO - [NFCGate-MITM] PIN bypass applied in session 2934343e
+2025-07-17 02:05:43,304 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 2934343e ended after 12.5s
+2025-07-17 02:05:43,305 - INFO - Session 2934343e cleaned up
+2025-07-17 02:05:53,172 - INFO - Accepted connection from ('77.85.97.37', 42214)
+2025-07-17 02:05:53,172 - INFO - Handling new connection from ('77.85.97.37', 42214)
+2025-07-17 02:05:53,173 - INFO - ✅ Connected to NFCGate on attempt 1 for session 97ccdcf1
+2025-07-17 02:05:57,846 - INFO - Accepted connection from ('37.63.3.88', 33024)
+2025-07-17 02:05:57,849 - INFO - Handling new connection from ('37.63.3.88', 33024)
+2025-07-17 02:05:57,849 - INFO - ✅ Connected to NFCGate on attempt 1 for session ab427386
+2025-07-17 02:06:00,442 - INFO - Accepted connection from ('77.85.97.37', 50136)
+2025-07-17 02:06:00,446 - INFO - Handling new connection from ('77.85.97.37', 50136)
+2025-07-17 02:06:00,446 - INFO - ✅ Connected to NFCGate on attempt 1 for session 15fa369f
+2025-07-17 02:06:00,448 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 97ccdcf1 ended after 7.3s
+2025-07-17 02:06:00,448 - INFO - Session 97ccdcf1 cleaned up
+2025-07-17 02:06:03,552 - INFO - PIN bypass applied
+2025-07-17 02:06:03,552 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:06:03,552 - INFO - [NFCGate-MITM] PIN bypass applied in session 15fa369f
+2025-07-17 02:06:05,532 - INFO - PIN bypass applied
+2025-07-17 02:06:05,532 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:06:05,532 - INFO - [NFCGate-MITM] PIN bypass applied in session 15fa369f
+2025-07-17 02:06:15,543 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 15fa369f ended after 15.1s
+2025-07-17 02:06:15,543 - INFO - Session 15fa369f cleaned up
+2025-07-17 02:06:24,912 - INFO - Accepted connection from ('77.85.97.37', 36004)
+2025-07-17 02:06:24,913 - INFO - Handling new connection from ('77.85.97.37', 36004)
+2025-07-17 02:06:24,914 - INFO - ✅ Connected to NFCGate on attempt 1 for session 361b8d10
+2025-07-17 02:07:33,813 - INFO - [NFCGate-MITM] SESSION_ENDED: Session 361b8d10 ended after 68.9s
+2025-07-17 02:07:33,813 - INFO - Session 361b8d10 cleaned up
+2025-07-17 02:09:42,794 - INFO - Shutdown signal received
+2025-07-17 02:09:52,448 - INFO - User selected option: 1
+2025-07-17 02:09:52,449 - INFO - NFCGate MITM Server started on port 8080
+2025-07-17 02:09:52,450 - INFO - Targeting NFCGate at 127.0.0.1:5566
+2025-07-17 02:09:52,450 - INFO - PIN Bypass Features:
+2025-07-17 02:09:52,450 - INFO -   - Pin Bypass Enabled: True
+2025-07-17 02:09:52,450 - INFO -   - Auto Contactless Approval: True
+2025-07-17 02:09:52,450 - INFO -   - Amount Limit Override: True
+2025-07-17 02:09:52,450 - INFO -   - Force Contactless Mode: True
+2025-07-17 02:09:52,450 - INFO -   - Auto Success Injection: True
+2025-07-17 02:10:11,994 - INFO - Accepted connection from ('37.63.3.88', 33274)
+2025-07-17 02:10:11,995 - INFO - Handling new connection from ('37.63.3.88', 33274)
+2025-07-17 02:10:11,995 - INFO - Connected to NFCGate on attempt 1 for session 93f517da
+2025-07-17 02:10:18,285 - INFO - Accepted connection from ('77.85.97.37', 36828)
+2025-07-17 02:10:18,286 - INFO - Handling new connection from ('77.85.97.37', 36828)
+2025-07-17 02:10:18,286 - INFO - Connected to NFCGate on attempt 1 for session c1164555
+2025-07-17 02:10:21,106 - INFO - PIN bypass applied
+2025-07-17 02:10:21,107 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:10:21,107 - INFO - [NFCGate-MITM] PIN bypass applied in session c1164555
+2025-07-17 02:10:24,703 - INFO - PIN bypass applied
+2025-07-17 02:10:24,703 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:10:24,703 - INFO - [NFCGate-MITM] PIN bypass applied in session c1164555
+2025-07-17 02:10:32,415 - INFO - Accepted connection from ('77.85.97.37', 35334)
+2025-07-17 02:10:32,415 - INFO - Handling new connection from ('77.85.97.37', 35334)
+2025-07-17 02:10:32,416 - INFO - Connected to NFCGate on attempt 1 for session c2fee0f8
+2025-07-17 02:10:32,418 - INFO - [NFCGate-MITM] SESSION_ENDED: Session c1164555 ended after 14.1s
+2025-07-17 02:10:32,418 - INFO - Session c1164555 cleaned up
+2025-07-17 02:10:35,859 - INFO - Accepted connection from ('37.63.3.88', 33264)
+2025-07-17 02:10:35,860 - INFO - Handling new connection from ('37.63.3.88', 33264)
+2025-07-17 02:10:35,861 - INFO - Connected to NFCGate on attempt 1 for session d19c3089
+2025-07-17 02:10:39,175 - INFO - Accepted connection from ('77.85.97.37', 39932)
+2025-07-17 02:10:39,176 - INFO - Handling new connection from ('77.85.97.37', 39932)
+2025-07-17 02:10:39,177 - INFO - Connected to NFCGate on attempt 1 for session ebb79cb5
+2025-07-17 02:10:39,189 - INFO - [NFCGate-MITM] SESSION_ENDED: Session c2fee0f8 ended after 6.8s
+2025-07-17 02:10:39,189 - INFO - Session c2fee0f8 cleaned up
+2025-07-17 02:10:42,282 - INFO - PIN bypass applied
+2025-07-17 02:10:42,282 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:10:42,282 - INFO - [NFCGate-MITM] PIN bypass applied in session ebb79cb5
+2025-07-17 02:10:45,583 - INFO - PIN bypass applied
+2025-07-17 02:10:45,583 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:10:45,583 - INFO - [NFCGate-MITM] PIN bypass applied in session ebb79cb5
+2025-07-17 02:10:47,182 - INFO - PIN bypass applied
+2025-07-17 02:10:47,183 - INFO - [NFCGate-MITM] PIN_BYPASSED: Data modified for bypass
+2025-07-17 02:10:47,183 - INFO - [NFCGate-MITM] PIN bypass applied in session ebb79cb5
+2025-07-17 02:10:47,183 - INFO - [NFCGate-MITM] SESSION_ENDED: Session ebb79cb5 ended after 8.0s
+2025-07-17 02:10:47,183 - INFO - Session ebb79cb5 cleaned up
+2025-07-17 02:13:47,652 - INFO - Shutdown signal received

