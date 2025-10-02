@@ -1,13 +1,30 @@
 """
 NFC data handler integrating all components.
+Prefers real protobufs from nfcgate_pb2 when available, falls back to shims.
 """
 import traceback
 from binascii import hexlify
 from typing import Dict, Any, Optional
-from .c2c_pb2 import NFCData
-from .metaMessage_pb2 import Wrapper
+
+try:
+    # Prefer real generated protobufs if present
+    from nfcgate_pb2 import NFCData as _RealNFCData, Wrapper as _RealWrapper
+    USING_REAL_PROTO = True
+except Exception:
+    _RealNFCData = None
+    _RealWrapper = None
+    USING_REAL_PROTO = False
+
+if USING_REAL_PROTO:
+    NFCData = _RealNFCData  # type: ignore
+    Wrapper = _RealWrapper  # type: ignore
+else:
+    # Fallback to local shims
+    from .c2c_pb2 import NFCData
+    from .metaMessage_pb2 import Wrapper
+
 from ..core.tlv_parser import parse_tlv, build_tlv, is_valid_tlv
-from ..core.crypto_handler import sign_data, add_signature_to_tlvs
+from ..core.crypto_handler import sign_data, add_signature_to_tlvs, load_or_generate_private_key
 from ..core.payment_detector import get_scheme_from_tlvs, detect_terminal_type
 from ..mitm.bypass_engine import bypass_tlv_modifications
 from ..utils.logger import Logger
@@ -63,11 +80,19 @@ def handle_nfc_data(data: bytes, private_key, state: Dict[str, Any]) -> bytes:
         # Build unsigned data
         unsigned_data = build_tlv(modified_tlvs)
         
-        # Sign the data
-        signature = sign_data(unsigned_data, private_key)
+        # Ensure we have a private key; load/generate default if missing
+        key = private_key
+        if key is None:
+            try:
+                key = load_or_generate_private_key('keys/private.pem')
+            except Exception:
+                key = None
+
+        # Sign the data (only if key available)
+        signature = sign_data(unsigned_data, key) if key is not None else b''
         
         # Add signature to TLVs
-        signed_tlvs = add_signature_to_tlvs(modified_tlvs, signature)
+        signed_tlvs = add_signature_to_tlvs(modified_tlvs, signature) if signature else modified_tlvs
 
         # Build final modified data
         modified_data = build_tlv(signed_tlvs)
@@ -111,36 +136,58 @@ def process_wrapper_message(wrapper_data: bytes, private_key, state: Dict[str, A
         
         logger.debug("Parsed Wrapper message successfully")
         
-        if wrapper.HasField('NFCData'):
-            logger.info(f"Wrapper contains NFCData: {hexlify(wrapper.NFCData.data).decode()[:100]}...")
+        has_nfc_oneof = False
+        if hasattr(wrapper, 'HasField') and (wrapper.HasField('nfc_data') or wrapper.HasField('NFCData')):
+            has_nfc_oneof = True
+        elif hasattr(wrapper, 'nfc_data') and getattr(wrapper.nfc_data, 'data', None) not in (None, b''):
+            has_nfc_oneof = True
+
+        if has_nfc_oneof:
+            # Preview NFC data (handles real or shim)
+            try:
+                nfc_bytes = getattr(getattr(wrapper, 'nfc_data', None) or wrapper.NFCData, 'data', b'')
+                logger.info(f"Wrapper contains NFCData: {hexlify(nfc_bytes).decode()[:100]}...")
+            except Exception:
+                logger.info("Wrapper contains NFCData")
             
             # Process the NFC data
-            modified_nfc_data = handle_nfc_data(wrapper.NFCData.SerializeToString(), private_key, state)
+            # Serialize the active NFCData (works for real or shim)
+            modified_nfc_data = handle_nfc_data((getattr(wrapper, 'nfc_data', None) or wrapper.NFCData).SerializeToString(), private_key, state)
             
             # Create response wrapper
             response_wrapper = Wrapper()
             response_nfc = NFCData()
             response_nfc.ParseFromString(modified_nfc_data)
-            response_wrapper.NFCData.CopyFrom(response_nfc)
+            # Set oneof appropriately based on real vs shim
+            if USING_REAL_PROTO:
+                # Real field name is snake_case
+                response_wrapper.nfc_data.CopyFrom(response_nfc)
+            else:
+                # Shim exposes PascalCase proxy
+                response_wrapper.NFCData.CopyFrom(response_nfc)
             
             result = response_wrapper.SerializeToString()
-            logger.info(f"Returning modified NFC data: {hexlify(response_wrapper.NFCData.data).decode()[:100]}...")
+            ret_preview = getattr(getattr(response_wrapper, 'nfc_data', None) or response_wrapper.NFCData, 'data', b'')
+            logger.info(f"Returning modified NFC data: {hexlify(ret_preview).decode()[:100]}...")
             
             return result
         else:
             field = wrapper.WhichOneof('message')
             logger.info(f"No NFCData in Wrapper, found field: {field}")
             
-            if wrapper.HasField('Anticol'):
+            if (hasattr(wrapper, 'HasField') and (wrapper.HasField('anticol') or wrapper.HasField('Anticol'))):
                 logger.info(f"Anticol data: {hexlify(wrapper.Anticol.uid).decode()}")
-            elif wrapper.HasField('Status'):
+            elif (hasattr(wrapper, 'HasField') and (wrapper.HasField('status') or wrapper.HasField('Status'))):
                 logger.info(f"Status: code={wrapper.Status.code}, message={wrapper.Status.message}")
-            elif wrapper.HasField('Data'):
-                logger.info(f"Data: payload={hexlify(wrapper.Data.payload).decode()[:100]}...")
+            elif (hasattr(wrapper, 'HasField') and (wrapper.HasField('data') or wrapper.HasField('Data'))):
+                logger.info(f"Data: payload={hexlify(getattr(wrapper.Data, 'payload', getattr(getattr(wrapper, 'data', None) or wrapper.Data, 'blob', b''))).decode()[:100]}...")
                 # Try to parse inner wrapper
-                return process_inner_wrapper(wrapper.Data.payload, private_key, state)
-            elif wrapper.HasField('Session'):
-                logger.info(f"Session: id={wrapper.Session.session_id}, status={wrapper.Session.status}")
+                inner = getattr(wrapper.Data, 'payload', None)
+                if inner is None and hasattr(wrapper, 'data'):
+                    inner = getattr(wrapper.data, 'blob', None)
+                return process_inner_wrapper(inner or b'', private_key, state)
+            elif hasattr(wrapper, 'HasField') and (wrapper.HasField('session') or wrapper.HasField('Session')):
+                logger.info(f"Session: id={getattr(wrapper.Session, 'session_id', '')}, status={getattr(wrapper.Session, 'status', '')}")
             
             return None
 
@@ -180,7 +227,7 @@ def process_inner_wrapper(payload: bytes, private_key, state: Dict[str, Any]) ->
             response_nfc.ParseFromString(modified_data)
             response_inner_wrapper.NFCData.CopyFrom(response_nfc)
             
-            # Wrap in outer Data message
+            # Wrap in outer Data message (proxy maps payload->blob)
             response_data = Wrapper()
             response_data.Data.payload = response_inner_wrapper.SerializeToString()
             

@@ -1,0 +1,41 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Logs
+*.log
+logs/
+gateimplement/tlv-system-ubuntu/logs/
+
+# Databases
+*.db
+*.sqlite
+database/
+gateimplement/tlv-system-ubuntu/database/
+
+# Keys and secrets
+keys/*.pem
+keys/*.key
+gateimplement/tlv-system-ubuntu/keys/
+
+# Build artifacts
+dist/
+build/
+.eggs/
+*.egg-info/
+
+# pytest
+.pytest_cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

@@ -1,8 +1,0 @@
-[
-  {
-    "time": 1753573103.5008483,
-    "action": "block_pin",
-    "url": "https://secure.processor.com/pin-verify",
-    "pattern": "PIN_BLOCK"
-  }
-]
