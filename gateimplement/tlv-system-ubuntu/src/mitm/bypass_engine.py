@@ -102,6 +102,61 @@ def detect_card_brand(tlvs: List[Dict[str, Any]]) -> str:
                     logger.debug(f"Card brand detected from AID: {info['name']}")
                     return info['name']
     
+    # Additional fallbacks: custom brand tag DF05 (text) and Application Label (50)
+    df05 = find_tlv(tlvs, 0xDF05)
+    if df05:
+        try:
+            label = df05['value'].decode('ascii', errors='ignore').upper()
+            if 'VISA' in label:
+                return 'Visa'
+            if 'MASTERCARD' in label or 'MC' in label:
+                return 'Mastercard'
+            if 'AMERICAN EXPRESS' in label or 'AMEX' in label:
+                return 'American Express'
+            if 'DISCOVER' in label:
+                return 'Discover'
+            if 'JCB' in label:
+                return 'JCB'
+            if 'UNIONPAY' in label or 'UNION PAY' in label:
+                return 'UnionPay'
+        except Exception:
+            pass
+    app_label = find_tlv(tlvs, 0x50)
+    if app_label:
+        try:
+            label = app_label['value'].decode('ascii', errors='ignore').upper()
+            if 'VISA' in label:
+                return 'Visa'
+            if 'MASTERCARD' in label:
+                return 'Mastercard'
+            if 'AMERICAN EXPRESS' in label or 'AMEX' in label:
+                return 'American Express'
+            if 'DISCOVER' in label:
+                return 'Discover'
+            if 'JCB' in label:
+                return 'JCB'
+            if 'UNIONPAY' in label or 'UNION PAY' in label:
+                return 'UnionPay'
+        except Exception:
+            pass
+
+    # Final fallback: infer brand from PAN digits using central lookup (handles synthetic test BINs)
+    try:
+        pan_tlv = find_tlv(tlvs, 0x5A)
+        if pan_tlv and pan_tlv.get('value'):
+            pan_hex = pan_tlv['value'].hex()
+            pan_digits = ''.join([
+                str((int(pan_hex[i:i+2], 16) >> 4) & 0x0F) + str(int(pan_hex[i:i+2], 16) & 0x0F)
+                for i in range(0, len(pan_hex), 2)
+            ])
+            from ..database.country_currency_lookup import country_currency_lookup as _ccl
+            inferred = _ccl.guess_brand_from_pan(pan_digits)
+            if inferred and inferred != 'Generic':
+                logger.debug(f"Card brand inferred from PAN via lookup: {inferred}")
+                return inferred
+    except Exception:
+        pass
+    
     logger.debug("Card brand unknown")
     return 'Unknown'
 
@@ -135,6 +190,23 @@ def detect_card_type(tlvs: List[Dict[str, Any]]) -> str:
         if any(pattern in aid_hex for pattern in ['BUSINESS', 'CORPORATE', 'COMMERCIAL']):
             return 'Business Card'
     
+    # Text-based fallbacks: look into DF05 (custom), 0x50 (Application Label), 0x9F12 (Preferred Name)
+    for tag in (0xDF05, 0x50, 0x9F12):
+        t = find_tlv(tlvs, tag)
+        if t and t.get('value'):
+            try:
+                txt = t['value'].decode('ascii', errors='ignore').upper()
+                if 'DEBIT' in txt:
+                    return 'Debit Card'
+                if 'PREPAID' in txt:
+                    return 'Prepaid Card'
+                if any(k in txt for k in ['BUSINESS','CORP','CORPORATE','COMMERCIAL']):
+                    return 'Business Card'
+                if 'CREDIT' in txt:
+                    return 'Credit Card'
+            except Exception:
+                pass
+
     # Check cardholder name for business indicators
     name_tlv = find_tlv(tlvs, 0x5F20)
     if name_tlv:
@@ -144,8 +216,17 @@ def detect_card_type(tlvs: List[Dict[str, Any]]) -> str:
                 return 'Business Card'
         except:
             pass
-    
-    logger.debug("Card type unknown - defaulting to Credit Card")
+
+    # If brand is known but no explicit type markers, assume Credit Card without raising the 'unknown' warning
+    try:
+        brand_hint = detect_card_brand(tlvs)
+        if brand_hint != 'Unknown':
+            logger.debug(f"Card type not indicated; assuming Credit Card for {brand_hint}")
+            return 'Credit Card'
+    except Exception:
+        pass
+
+    logger.debug("Card type not indicated; assuming Credit Card")
     return 'Credit Card'
 
 
@@ -215,6 +296,20 @@ def analyze_bin_geography(bin_code: str, card_brand: str) -> Dict[str, Any]:
             else:
                 analysis['issuer_size'] = 'small'
         
+        # If region still unknown, use central lookup's BIN geography guesser
+        if analysis.get('geographic_region') == 'unknown':
+            try:
+                from ..database.country_currency_lookup import country_currency_lookup as _ccl
+                geo = _ccl.guess_geography_from_bin(bin_code)
+                if geo.get('region'):
+                    analysis['geographic_region'] = geo['region'].lower().replace(' ', '_')
+                if geo.get('issuer_country') and analysis.get('issuer_type') == 'unknown':
+                    # Provide a minimal hint; don't overwrite detailed issuer typing
+                    analysis['issuer_type'] = 'regional_bank'
+                if geo.get('currency_code') and 'currency_code' not in analysis:
+                    analysis['currency_code'] = geo['currency_code']
+            except Exception:
+                pass
         logger.debug(f"BIN analysis for {bin_code}: {analysis}")
         return analysis
         
@@ -252,6 +347,22 @@ def get_comprehensive_card_info(tlvs: List[Dict[str, Any]]) -> Dict[str, Any]:
     pan_tlv = find_tlv(tlvs, 0x5A)
     if pan_tlv:
         info['pan'] = pan_tlv['value'].hex()
+        # Try brand inference fallback for synthetic/dev PANs
+        try:
+            from ..database.country_currency_lookup import country_currency_lookup as _ccl
+            # Convert BCD hex PAN to digit string
+            pan_hex = pan_tlv['value'].hex()
+            pan_digits = ''.join([
+                str((int(pan_hex[i:i+2], 16) >> 4) & 0x0F) + str(int(pan_hex[i:i+2], 16) & 0x0F)
+                for i in range(0, len(pan_hex), 2)
+            ])
+            if card_brand == 'Unknown':
+                inferred = _ccl.guess_brand_from_pan(pan_digits)
+                if inferred and inferred != 'Generic':
+                    card_brand = inferred
+                    info['brand'] = inferred
+        except Exception:
+            pass
     
     # Extract expiry date
     expiry_tlv = find_tlv(tlvs, 0x5F24)
@@ -299,6 +410,22 @@ def get_comprehensive_card_info(tlvs: List[Dict[str, Any]]) -> Dict[str, Any]:
         alt_country_tlv = find_tlv(tlvs, 0x9F1A)  # Terminal Country Code
         if alt_country_tlv:
             info['issuer_country'] = alt_country_tlv['value'].hex().upper()
+        else:
+            # As a last resort, infer from BIN
+            try:
+                from ..database.country_currency_lookup import country_currency_lookup as _ccl
+                if info.get('pan') and len(info['pan']) >= 6:
+                    bin_code = info['pan'][:6]
+                    geo = _ccl.guess_geography_from_bin(bin_code)
+                    if geo.get('issuer_country'):
+                        info['issuer_country'] = geo['issuer_country']
+                        country_data = _ccl.get_country_info(geo['issuer_country'])
+                        if country_data:
+                            info['issuer_country_name'] = country_data['name']
+                            info['issuer_country_code'] = country_data['code']
+                            info['issuer_region'] = country_data['region']
+            except Exception:
+                pass
     
     # Extract Transaction Currency Code (multiple possible locations)
     currency_tlv = find_tlv(tlvs, 0x5F2A)  # Transaction Currency Code
@@ -326,6 +453,20 @@ def get_comprehensive_card_info(tlvs: List[Dict[str, Any]]) -> Dict[str, Any]:
             if amount_tlv:
                 # Currency often embedded in amount processing
                 info['currency_code'] = '0840'  # Default to USD if not found
+            # If still missing, infer from BIN
+            if not info.get('currency_code') and info.get('pan') and len(info['pan']) >= 6:
+                try:
+                    from ..database.country_currency_lookup import country_currency_lookup as _ccl
+                    geo = _ccl.guess_geography_from_bin(info['pan'][:6])
+                    if geo.get('currency_code'):
+                        info['currency_code'] = geo['currency_code']
+                        curr = _ccl.get_currency_info(info['currency_code'])
+                        if curr:
+                            info['currency_name'] = curr['name']
+                            info['currency_symbol'] = curr['symbol']
+                            info['currency_alpha_code'] = curr['code']
+                except Exception:
+                    pass
     
     # Extract additional geographical information
     # Service Code for international usage indicators
@@ -346,6 +487,16 @@ def get_comprehensive_card_info(tlvs: List[Dict[str, Any]]) -> Dict[str, Any]:
             info['bin_code'] = bin_code
             # Enhanced BIN analysis for geography
             info['bin_analysis'] = analyze_bin_geography(bin_code, info.get('brand', 'Unknown'))
+            # If brand still Unknown, adopt hint
+            try:
+                from ..database.country_currency_lookup import country_currency_lookup as _ccl
+                if info.get('brand', 'Unknown') == 'Unknown':
+                    hint = _ccl.guess_geography_from_bin(bin_code).get('brand_hint')
+                    if hint:
+                        info['brand'] = hint
+                        card_brand = hint
+            except Exception:
+                pass
     
     logger.info(f"Comprehensive card info: {card_brand} {card_type}")
     return info

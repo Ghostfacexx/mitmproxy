@@ -129,6 +129,39 @@ class CardRecognitionEngine:
         try:
             # Get basic card information
             card_info = get_comprehensive_card_info(tlvs)
+            # Fallback enrichment: infer brand and geography for synthetic/dev PANs
+            try:
+                if card_info.get('brand', 'Unknown') == 'Unknown' and card_info.get('pan'):
+                    # PAN is hex BCD, convert to digits
+                    pan_hex = card_info['pan']
+                    pan_digits = ''.join([
+                        str((int(pan_hex[i:i+2], 16) >> 4) & 0x0F) + str(int(pan_hex[i:i+2], 16) & 0x0F)
+                        for i in range(0, len(pan_hex), 2)
+                    ])
+                    inferred = country_currency_lookup.guess_brand_from_pan(pan_digits)
+                    if inferred and inferred != 'Generic':
+                        card_info['brand'] = inferred
+                        logger.debug(f"Brand inferred from PAN: {inferred}")
+                # If issuer/currency missing, try BIN geography
+                if card_info.get('pan') and (not card_info.get('issuer_country') or not card_info.get('currency_code')):
+                    bin_code = card_info['pan'][:6]
+                    geo = country_currency_lookup.guess_geography_from_bin(bin_code)
+                    if geo.get('issuer_country') and not card_info.get('issuer_country'):
+                        cc = country_currency_lookup.get_country_info(geo['issuer_country'])
+                        if cc:
+                            card_info['issuer_country'] = geo['issuer_country']
+                            card_info['issuer_country_name'] = cc['name']
+                            card_info['issuer_country_code'] = cc['code']
+                            card_info['issuer_region'] = cc['region']
+                    if geo.get('currency_code') and not card_info.get('currency_code'):
+                        cu = country_currency_lookup.get_currency_info(geo['currency_code'])
+                        if cu:
+                            card_info['currency_code'] = geo['currency_code']
+                            card_info['currency_name'] = cu['name']
+                            card_info['currency_symbol'] = cu['symbol']
+                            card_info['currency_alpha_code'] = cu['code']
+            except Exception as _enrich_err:
+                logger.debug(f"Enrichment fallback skipped: {_enrich_err}")
             
             # Check cache first
             card_hash = self._hash_card_data(card_info)

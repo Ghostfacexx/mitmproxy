@@ -31,7 +31,7 @@ try:
     if str(_project_root) not in sys.path:
         sys.path.insert(0, str(_project_root))
     # Import MITM components
-    from src.core.tlv_parser import parse_tlv, build_tlv
+    from src.core.tlv_parser import parse_tlv, build_tlv, is_valid_tlv
     from src.core.crypto_handler import (
         sign_data,
         add_signature_to_tlvs,
@@ -77,7 +77,9 @@ class NFCGateProtocol:
         
         # Create header
         header = b'NFCG'  # Magic bytes
-        length = struct.pack('<I', len(data) + 16)  # Data + session + type + checksum
+        # Parser expects payload_end = 17 + length - 12 == 17 + len(data), so length must be len(data) + 12
+        # (12 accounts for session(8) + type(1) + checksum(4) minus the parser's offset logic)
+        length = struct.pack('<I', len(data) + 12)
         msg_type_bytes = struct.pack('<B', msg_type)
         
         # Calculate checksum
@@ -1187,12 +1189,20 @@ class NFCGateServer:
         for key in ('raw_tlv_hex', 'raw_data', 'tlv_hex'):
             val = nfc_data.get(key)
             if isinstance(val, str) and self._looks_hex(val):
-                return unhexlify(val)
+                candidate = unhexlify(val)
+                if is_valid_tlv(candidate):
+                    return candidate
+                else:
+                    logger.debug(f"Rejected {key}: not valid TLV envelope")
         # Base64-encoded TLV bytes
         b64 = nfc_data.get('tlv_bytes_b64')
         if isinstance(b64, str):
             try:
-                return base64.b64decode(b64)
+                candidate = base64.b64decode(b64)
+                if is_valid_tlv(candidate):
+                    return candidate
+                else:
+                    logger.debug("Rejected tlv_bytes_b64: not valid TLV envelope")
             except Exception:
                 pass
         # Build from TLV key:value string (e.g., "5A:11223344|50:VISA")
@@ -1211,7 +1221,13 @@ class NFCGateServer:
                         val_bytes = val_str.encode('utf-8', errors='ignore')
                     tlvs_list.append({'tag': tag_int, 'value': val_bytes, 'children': None})
                 if tlvs_list:
-                    return build_tlv(tlvs_list)
+                    # Wrap into constructed FCI template (6F) so parser accepts and can walk children
+                    envelope = [{'tag': 0x6F, 'value': b'', 'children': tlvs_list}]
+                    built = build_tlv(envelope)
+                    if is_valid_tlv(built):
+                        return built
+                    else:
+                        logger.debug("Constructed TLV from tlv_data failed validation")
             except Exception as e:
                 logger.debug(f"Failed to build TLV from tlv_data: {e}")
         return None
@@ -1332,9 +1348,8 @@ class NFCGateClient:
             
             self.socket.sendall(init_message)
             
-            # Wait for response
-            response_data = self.socket.recv(4096)
-            response = NFCGateProtocol.parse_message(response_data)
+            # Wait for response (robustly read a full NFCGate frame)
+            response = self._recv_frame(timeout=5.0)
             
             if response and response['type'] == NFCGateProtocol.MESSAGE_TYPES['STATUS']:
                 response_json = json.loads(response['data'].decode('utf-8'))
@@ -1379,16 +1394,37 @@ class NFCGateClient:
             
             self.socket.sendall(message)
             
-            # Wait for response
-            response_data = self.socket.recv(4096)
-            response = NFCGateProtocol.parse_message(response_data)
-            
-            if response and response['type'] == NFCGateProtocol.MESSAGE_TYPES['NFC_DATA']:
-                logger.info("📡 NFC data sent successfully")
-                return True
-            else:
-                logger.error("❌ Failed to send NFC data")
+            # Wait for the corresponding NFC_DATA response, skipping heartbeats or status frames
+            response = self._recv_until({
+                NFCGateProtocol.MESSAGE_TYPES['NFC_DATA'],
+                NFCGateProtocol.MESSAGE_TYPES['ERROR']
+            }, timeout_total=8.0)
+
+            if not response:
+                logger.error("❌ No response from server for NFC_DATA")
                 return False
+
+            if response['type'] == NFCGateProtocol.MESSAGE_TYPES['ERROR']:
+                try:
+                    payload = json.loads(response['data'].decode('utf-8'))
+                    logger.error(f"❌ Server error: {payload}")
+                except Exception:
+                    logger.error("❌ Server returned ERROR frame")
+                return False
+
+            # Success
+            try:
+                payload = json.loads(response['data'].decode('utf-8'))
+                status = payload.get('status')
+                if status == 'success':
+                    logger.info("📡 NFC data sent successfully")
+                    return True
+                else:
+                    logger.error(f"❌ NFC data not accepted: {status}")
+                    return False
+            except Exception:
+                logger.info("📡 NFC data sent (unparsed response)")
+                return True
                 
         except Exception as e:
             logger.error(f"❌ Error sending NFC data: {e}")
@@ -1411,6 +1447,53 @@ class NFCGateClient:
                 logger.error(f"❌ Heartbeat failed: {e}")
                 self.connected = False
                 break
+
+    # --- Client socket helpers ---
+    def _recv_exact(self, n: int, timeout: float = 5.0) -> Optional[bytes]:
+        """Receive exactly n bytes or return None on timeout/disconnect."""
+        self.socket.settimeout(timeout)
+        chunks = []
+        remaining = n
+        while remaining > 0:
+            try:
+                chunk = self.socket.recv(remaining)
+                if not chunk:
+                    return None
+                chunks.append(chunk)
+                remaining -= len(chunk)
+            except socket.timeout:
+                return None
+        return b"".join(chunks)
+
+    def _recv_frame(self, timeout: float = 5.0) -> Optional[Dict[str, Any]]:
+        """Receive a full NFCGate frame and parse it."""
+        # Read header and length first
+        head = self._recv_exact(8, timeout)
+        if not head:
+            return None
+        if head[:4] != b'NFCG':
+            logger.error("Invalid frame magic, dropping")
+            return None
+        length = struct.unpack('<I', head[4:8])[0]
+        # Read the rest of the frame: session(8)+type(1)+payload(length-12)+checksum(4) = length+1 bytes
+        rest = self._recv_exact(length + 1, timeout)
+        if not rest:
+            return None
+        frame = head + rest
+        return NFCGateProtocol.parse_message(frame)
+
+    def _recv_until(self, expected_types: set, timeout_total: float = 8.0) -> Optional[Dict[str, Any]]:
+        """Keep receiving frames until one of expected_types arrives or timeout total elapses."""
+        deadline = time.time() + timeout_total
+        while time.time() < deadline:
+            remaining = max(0.1, deadline - time.time())
+            msg = self._recv_frame(timeout=remaining)
+            if not msg:
+                continue
+            if msg['type'] in expected_types:
+                return msg
+            # Ignore other frames (e.g., HEARTBEAT/STATUS) and continue
+        return None
 
 def main():
     """Main function for testing NFCGate compatibility"""
